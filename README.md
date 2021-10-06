@@ -1,2 +1,0 @@
-# PSA-CODE-SPRINT-CHILL
-Chill
