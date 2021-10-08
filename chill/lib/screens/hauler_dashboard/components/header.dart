@@ -1,6 +1,5 @@
-import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/header_text.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
   @override

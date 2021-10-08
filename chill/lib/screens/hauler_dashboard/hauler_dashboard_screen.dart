@@ -1,3 +1,4 @@
+import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/header.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,10 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: Column(
-      children: <Widget>[Header()],
-    )));
+            body: Container(
+                padding: EdgeInsets.all(kDefaultPadding),
+                child: Column(
+                  children: <Widget>[Header()],
+                ))));
   }
 }

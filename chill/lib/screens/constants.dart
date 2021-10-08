@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const kPrimaryColor = Color(0xFF4120A9);
 const kSecondaryColor = Color(0xFFA16AE8);
 const kTextColor = Color(0xFF0F0F2F);
-const kBackgroundColor = Color(0xFFEFEFDF);
+const kBackgroundColor = Color(0xFFE8E8E8);
 
 // FontSize
 const double kHeaderFont = 30;
