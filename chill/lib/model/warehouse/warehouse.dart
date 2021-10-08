@@ -1,4 +1,4 @@
-import 'package:chill/model/docking_bay.dart';
+import 'package:chill/model/warehouse/docking_bay.dart';
 
 /**
  * WARNINGS:
