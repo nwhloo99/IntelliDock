@@ -1,4 +1,4 @@
-import 'package:chill/model/Hauler/hauler.dart';
+import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {
   bool isOccupied = false;
@@ -39,7 +39,7 @@ class DockingBay {
   bool haulerEnter(Hauler hauler) {
     this.isOccupied = true;
     this.startTime = DateTime.now();
-    this.estimatedDuration = hauler.ETA;
+    this.estimatedDuration = hauler.EstimatedCargoTime;
     this.initialHaulerWeight = hauler.getCurrentWeight();
     this.finalHaulerWeight = hauler.getExpectedWeight();
     this.currentHauler = hauler;
@@ -50,7 +50,7 @@ class DockingBay {
    * private method _calEstTime to dynamically update the estimatedDuration
    * left in the docking_bay.
    */
-  void _calEstTimeRemaining() {
+  void _calEstTimeRemainingForCargo() {
     Duration timeDiff = DateTime.now().difference(startTime);
     estimatedDuration -= timeDiff;
   }

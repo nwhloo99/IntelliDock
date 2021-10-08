@@ -1,6 +1,9 @@
 abstract class Hauler {
+  String haulerStatus = '';
+
   // Time related Variables
-  late Duration ETA;
+  late Duration EstimatedCargoTime;
+  late Duration EstimatedTravelTime;
   DateTime startTime = DateTime.now();
 
   // Weight related Variables
@@ -25,8 +28,8 @@ abstract class Hauler {
    * private method _calEstTime to dynamically update the estimatedDuration
    * left for hauler.
    */
-  void _calEstTimeRemaining() {
+  void _calEstTimeRemainingToLocation() {
     Duration timeDiff = DateTime.now().difference(startTime);
-    ETA -= timeDiff;
+    EstimatedTravelTime -= timeDiff;
   }
 }

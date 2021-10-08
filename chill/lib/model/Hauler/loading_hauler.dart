@@ -7,7 +7,8 @@ class LoadingHauler extends Hauler {
    * Constructor for loading_hauler
    */
   LoadingHauler(expectedCargo, currentWeight) : super(expectedCargo) {
-    this.ETA = Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
+    this.EstimatedCargoTime =
+        Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
     this.currentWeight = currentWeight;
   }
 
