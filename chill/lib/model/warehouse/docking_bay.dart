@@ -1,4 +1,4 @@
-import 'package:chill/model/Hauler/hauler.dart';
+import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {
   bool isOccupied = false;
