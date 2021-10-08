@@ -1,6 +1,6 @@
 import 'package:chill/model/Hauler/hauler.dart';
 
-class docking_bay {
+class DockingBay {
   bool isOccupied = false;
   String bayName;
 
@@ -11,12 +11,12 @@ class docking_bay {
   // Hauler-related
   num initialHaulerWeight = 0;
   num finalHaulerWeight = 0;
-  late hauler currentHauler;
+  late Hauler currentHauler;
 
   /**
    * Arbitrary Constructor for docking_bay
    */
-  docking_bay(this.bayName) {}
+  DockingBay(this.bayName) {}
 
   /**
    * haulerLeaves re-initializes the variables in docking_bay by reseting
@@ -36,7 +36,7 @@ class docking_bay {
    * haulerEnter initializes the variables to begin tracking the time spent
    * unloading or loading the cargo
    */
-  bool haulerEnter(hauler hauler) {
+  bool haulerEnter(Hauler hauler) {
     this.isOccupied = true;
     this.startTime = DateTime.now();
     this.estimatedDuration = hauler.ETA;
