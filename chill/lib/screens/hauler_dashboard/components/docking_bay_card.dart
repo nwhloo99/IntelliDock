@@ -3,8 +3,8 @@ import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class DockingBarCard extends StatefulWidget {
-  DockingBarCard(
+class DockingBayCard extends StatefulWidget {
+  DockingBayCard(
       {Key? key,
       required this.containerNumber,
       required this.dockingBay,
@@ -18,10 +18,10 @@ class DockingBarCard extends StatefulWidget {
   Duration estTime;
 
   @override
-  _DockingBarCardState createState() => _DockingBarCardState();
+  _DockingBayCardState createState() => _DockingBayCardState();
 }
 
-class _DockingBarCardState extends State<DockingBarCard> {
+class _DockingBayCardState extends State<DockingBayCard> {
   @override
   Widget build(BuildContext context) {
     return Container(

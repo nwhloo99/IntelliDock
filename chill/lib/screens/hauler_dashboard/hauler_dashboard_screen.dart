@@ -41,97 +41,97 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                     Expanded(
                         child: ListView(
                       children: [
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
                           estTime: Duration(hours: 3),
                         ),
-                        DockingBarCard(
+                        DockingBayCard(
                           containerNumber: "10",
                           dockingBay: "A1",
                           pickupTime: TimeOfDay(hour: 9, minute: 0),
