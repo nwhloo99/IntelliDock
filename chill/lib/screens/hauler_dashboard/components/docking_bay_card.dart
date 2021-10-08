@@ -24,8 +24,12 @@ class DockingBarCard extends StatefulWidget {
 class _DockingBarCardState extends State<DockingBarCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-        color: kPrimaryColor,
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 5),
+        margin: EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(88)),
+            color: kSecondaryColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[

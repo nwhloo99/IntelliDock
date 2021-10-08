@@ -1,6 +1,6 @@
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
-import 'package:chill/screens/hauler_dashboard/components/header.dart';
+import 'package:chill/screens/hauler_dashboard/components/list_header.dart';
 import 'package:flutter/material.dart';
 
 class HaulerDashboardScreen extends StatefulWidget {
@@ -19,7 +19,25 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                 padding: EdgeInsets.all(kDefaultPadding),
                 child: Column(
                   children: <Widget>[
-                    Header(),
+                    Container(
+                        decoration: BoxDecoration(color: kPrimaryColor),
+                        child: Text("DASHBOARD")),
+                    Container(
+                        child: ButtonBar(
+                      alignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Hello"),
+                            style: ElevatedButton.styleFrom(
+                              primary: kPrimaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(36))),
+                            ))
+                      ],
+                    )),
+                    ListHeader(),
                     Expanded(
                         child: ListView(
                       children: [
