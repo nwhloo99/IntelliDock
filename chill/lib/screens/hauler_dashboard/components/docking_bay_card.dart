@@ -26,14 +26,13 @@ class _DockingBayCardState extends State<DockingBayCard> {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.symmetric(vertical: 5),
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(88)),
             color: kSecondaryColor),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            EntryText(data: "Container: " + this.widget.containerNumber),
             EntryText(data: "Docking bay: " + this.widget.dockingBay),
             EntryText(
                 data: "Est Time Remaining: " +
