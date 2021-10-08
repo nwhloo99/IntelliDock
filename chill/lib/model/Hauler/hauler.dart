@@ -1,10 +1,13 @@
-abstract class hauler {
+abstract class Hauler {
   // Time related Variables
   late Duration ETA;
   DateTime startTime = DateTime.now();
 
   // Weight related Variables
   num currentWeight = 0;
+  num expectedCargo;
+
+  Hauler(this.expectedCargo);
 
   /**
    * Calculates and returns expectedWeight of cargo in hauler

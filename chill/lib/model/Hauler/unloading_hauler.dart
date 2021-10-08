@@ -2,13 +2,11 @@ import 'package:chill/model/Hauler/hauler.dart';
 import 'package:chill/model/constants.dart';
 
 // Hauler that is going to Unload Cargo
-class unloading_hauler extends hauler {
-  num expectedCargo = 0;
-
+class UnloadingHauler extends Hauler {
   /**
-   * Constructor for unloading_hauler 
+   * Constructor for UnloadingHauler 
    */
-  unloading_hauler(this.expectedCargo, currentWeight) {
+  UnloadingHauler(expectedCargo, currentWeight) : super(expectedCargo) {
     this.ETA = Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
     this.currentWeight = currentWeight;
   }
