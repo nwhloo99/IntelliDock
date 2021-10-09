@@ -35,7 +35,8 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
                   DashboardButtons(),
-                  CurrentBooking(this.widget.haulerUser),
+                  CurrentBooking(
+                      this.widget.haulerUser, this.widget.simulationMap),
                   Expanded(
                       child: Row(children: [
                     DockingBayList(this.widget.loadingQueue,

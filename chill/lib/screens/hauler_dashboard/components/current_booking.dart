@@ -1,6 +1,8 @@
+import 'package:chill/model/port_map.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/hauler_start/hauler_start_screen.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
@@ -8,7 +10,9 @@ import 'package:flutter/material.dart';
 
 class CurrentBooking extends StatefulWidget {
   final HaulerUser haulerUser;
-  const CurrentBooking(this.haulerUser, {Key? key}) : super(key: key);
+  final PortMap simulationMap;
+  const CurrentBooking(this.haulerUser, this.simulationMap, {Key? key})
+      : super(key: key);
 
   @override
   _CurrentBookingState createState() => _CurrentBookingState();
@@ -32,7 +36,8 @@ class _CurrentBookingState extends State<CurrentBooking> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 CurrentDockingBayInfo(this.widget.haulerUser),
-                CurrentJobInfo(this.widget.haulerUser)
+                CurrentJobInfo(
+                    this.widget.haulerUser, this.widget.simulationMap)
               ])
         ]));
   }
@@ -40,7 +45,9 @@ class _CurrentBookingState extends State<CurrentBooking> {
 
 class CurrentJobInfo extends StatelessWidget {
   final HaulerUser haulerUser;
-  const CurrentJobInfo(this.haulerUser, {Key? key}) : super(key: key);
+  final PortMap simulationMap;
+  const CurrentJobInfo(this.haulerUser, this.simulationMap, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +58,15 @@ class CurrentJobInfo extends StatelessWidget {
             children: <Widget>[
               EntryText(data: "Loading job"),
               EntryText(data: "Time: 1030 - 1130"),
-              NavigationButton(label: "Start", onPressed: () {})
+              NavigationButton(
+                  label: "Start",
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                HaulerStartScreen(haulerUser, simulationMap)));
+                  })
             ]));
   }
 }
