@@ -17,10 +17,10 @@ class HaulerUser {
 
   void addCurrentRequest(Request request) {
     currentBooking.add(request);
-    currentBooking.sort((a, b) => a.compareEstimate(b));
+    currentBooking.sort((a, b) => b.compareEstimate(a));
   }
 
   String haulerName() {
-    return "Hauler " + self.haulerNum.toString();
+    return "Hauler " + self.haulerName;
   }
 }

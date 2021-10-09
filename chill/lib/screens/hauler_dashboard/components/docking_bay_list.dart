@@ -20,15 +20,15 @@ class DockingBayList extends StatefulWidget {
   _DockingBayListState createState() => _DockingBayListState();
 }
 
-// TODO Need to refresh List
 class _DockingBayListState extends State<DockingBayList> {
   // Future<DockingBay> getData() async {
 
   // }
-  List<DockingBayCard> cardList = [];
 
   @override
   Widget build(BuildContext context) {
+    List<DockingBayCard> cardList = [];
+
     this.widget.loadingBayList.requestList.forEach((bayRequest) {
       DockingBayCard card = new DockingBayCard(
           bayRequest,

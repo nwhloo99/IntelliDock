@@ -1,7 +1,7 @@
 import 'package:chill/constants.dart';
 
 class Hauler {
-  num haulerNum;
+  String haulerName;
   hauler_state state = hauler_state.Waiting;
 
   // Time related Variables
@@ -13,7 +13,7 @@ class Hauler {
   num currentWeight = 0;
   num expectedCargo;
 
-  Hauler(this.haulerNum, this.expectedCargo, this.currentWeight) {
+  Hauler(this.haulerName, this.expectedCargo, this.currentWeight) {
     this.EstimatedCargoTime =
         Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
   }
@@ -28,10 +28,12 @@ class Hauler {
   }
 
   void setState_TravellingToLoad() {
+    this.startTime = DateTime.now();
     this.state = hauler_state.TravellingToLoad;
   }
 
   void setState_TravellingToUnload() {
+    this.startTime = DateTime.now();
     this.state = hauler_state.TravellingToUnload;
   }
 

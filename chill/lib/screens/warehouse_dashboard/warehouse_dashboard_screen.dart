@@ -27,7 +27,7 @@ class _WarehouseDashboardScreenState extends State<WarehouseDashboardScreen> {
                           style: TextStyle(
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
-                  DockingBayGrid(),
+                  DockingBayGrid(this.widget.warehouseUser),
                 ]))));
   }
 }
