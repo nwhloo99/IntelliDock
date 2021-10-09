@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
       : super(key: key);
 
   final HaulerUser haulerUser;
-  final LoadingBayUser bayUser;
+  final WarehouseUser bayUser;
   final LoadingQueue loadingQueue;
   final PortMap simulationMap;
 
@@ -40,7 +40,8 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => WarehouseDashboardScreen()));
+                          builder: (context) =>
+                              WarehouseDashboardScreen(bayUser)));
                 }),
             NavigationButton(
                 label: "Hauler",
