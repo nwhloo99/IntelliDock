@@ -1,4 +1,5 @@
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/hauler_dashboard/components/current_booking.dart';
 import 'package:chill/screens/hauler_dashboard/components/dashboard_buttons.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_list.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
                   DashboardButtons(),
+                  CurrentBooking(),
                   Expanded(
                       child: Row(children: [
                     DockingBayList(header: "Loading bay"),
