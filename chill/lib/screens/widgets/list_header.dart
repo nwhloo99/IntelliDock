@@ -11,7 +11,7 @@ class ListHeader extends StatelessWidget {
     return Align(
         alignment: Alignment.center,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
           child: Text(
             this.header,
             style:
