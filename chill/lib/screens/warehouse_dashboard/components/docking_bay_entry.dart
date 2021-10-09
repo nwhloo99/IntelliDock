@@ -16,6 +16,33 @@ class DockingBayEntry extends StatefulWidget {
 class _DockingBayEntryState extends State<DockingBayEntry> {
   @override
   Widget build(BuildContext context) {
+    String nxtHauler = '';
+    String ETAofNxtHauler = '';
+    if (this.widget.dockingBay.incomingHauler.isEmpty) {
+      nxtHauler = 'NIL';
+      ETAofNxtHauler = 'NIL';
+    } else {
+      nxtHauler = this.widget.dockingBay.incomingHauler.first.haulerName;
+      ETAofNxtHauler = this
+          .widget
+          .dockingBay
+          .incomingHauler
+          .first
+          .EstimatedTravelTime
+          .inMinutes
+          .toString();
+    }
+
+    String currentHauler = '';
+    String timeLft = '';
+    if (this.widget.dockingBay.isOccupied) {
+      currentHauler = this.widget.dockingBay.currentHauler.haulerName;
+      timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
+    } else {
+      currentHauler = 'NIL';
+      timeLft = 'NIL';
+    }
+
     return Container(
         decoration: BoxDecoration(
             border: Border.all(color: kPrimaryColor),
@@ -27,14 +54,10 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
           EntryText(
               data: "Status: " +
                   (this.widget.dockingBay.isOccupied ? "In use" : "Free")),
-          // TODO
-          // HAULER FROM QUEUE OF HAULERS ARRIVING
-          EntryText(data: "Haulers arriving: "),
-          // TODO
-          // Add ETA of Hauler
-          EntryText(data: "ETA: -"),
-          EntryText(data: "Hauler at bay: "),
-          EntryText(data: "Time till available: 0 min")
+          EntryText(data: "Next Hauler: " + nxtHauler),
+          EntryText(data: "ETA: " + ETAofNxtHauler + " min"),
+          EntryText(data: "Hauler at bay: " + currentHauler),
+          EntryText(data: "Time till available: " + timeLft + " min")
         ]));
   }
 }

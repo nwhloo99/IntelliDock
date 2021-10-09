@@ -20,7 +20,6 @@ class DockingBayList extends StatefulWidget {
   _DockingBayListState createState() => _DockingBayListState();
 }
 
-// TODO Need to refresh List
 class _DockingBayListState extends State<DockingBayList> {
   // Future<DockingBay> getData() async {
 
