@@ -11,14 +11,16 @@ class NavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: this.onPressed,
-        child: Text(this.label, style: TextStyle(fontSize: kTextFont)),
-        style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          primary: kPrimaryColor,
+    return OutlinedButton(
+      onPressed: this.onPressed,
+      child: Text(this.label, style: TextStyle(fontSize: kTextFont)),
+      style: OutlinedButton.styleFrom(
+          primary: kTextColor,
+          backgroundColor: kSecondaryColor,
+          padding: EdgeInsets.all(10),
+          side: BorderSide(color: kPrimaryColor, width: 1.0),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(36))),
-        ));
+              borderRadius: BorderRadius.all(Radius.circular(36)))),
+    );
   }
 }

@@ -26,6 +26,7 @@ class _CurrentBookingState extends State<CurrentBooking> {
 
     return Container(
         decoration: BoxDecoration(
+            color: kSecondaryColor,
             border: Border.all(color: kPrimaryColor),
             borderRadius: BorderRadius.all(Radius.circular(30))),
         margin:
@@ -57,8 +58,6 @@ class CurrentJobInfo extends StatelessWidget {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              EntryText(data: "Loading job"),
-              EntryText(data: "Time: 1030 - 1130"),
               NavigationButton(
                   label: "Start",
                   onPressed: () {
@@ -84,34 +83,31 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.only(bottom: 10),
         child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: this.widget.haulerUser.currentBooking.isEmpty
-          ? <Widget>[EntryText(data: "No Request")]
-          : <Widget>[
-              EntryText(data: "Docking Bay"),
-              EntryText(
-                  data: this
-                      .widget
-                      .haulerUser
-                      .currentBooking
-                      .first
-                      .bay
-                      .bayNum
-                      .toString()),
-              EntryText(
-                data: "Est Time Remaining: " +
-                    this
-                        .widget
-                        .haulerUser
-                        .currentBooking
-                        .first
-                        .estimatedReadyTime
-                        .inMinutes
-                        .toString() +
-                    " mins",
-              )
-            ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: this.widget.haulerUser.currentBooking.isEmpty
+              ? <Widget>[EntryText(data: "No Request")]
+              : <Widget>[
+                  EntryText(
+                      data: "Warehouse: " +
+                          this
+                              .widget
+                              .haulerUser
+                              .currentBooking
+                              .first
+                              .warehouseName),
+                  EntryText(
+                      data: "Docking Bay: " +
+                          this
+                              .widget
+                              .haulerUser
+                              .currentBooking
+                              .first
+                              .bay
+                              .bayNum
+                              .toString()),
+                ],
+        ));
   }
 }

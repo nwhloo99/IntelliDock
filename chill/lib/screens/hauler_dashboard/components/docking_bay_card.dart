@@ -27,16 +27,31 @@ class _DockingBayCardState extends State<DockingBayCard> {
     return ClipRRect(
         child: Container(
             decoration: BoxDecoration(
+                color: kSecondaryColor,
                 border: Border.all(color: kPrimaryColor),
                 borderRadius: BorderRadius.all(Radius.circular(30))),
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  EntryText(
-                      data: "Docking bay: " +
-                          this.widget.dockingBayRequest.bay.bayNum.toString()),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      EntryText(
+                          data: "Warehouse: " +
+                              this.widget.dockingBayRequest.warehouseName),
+                      EntryText(
+                          data: "Docking bay: " +
+                              this
+                                  .widget
+                                  .dockingBayRequest
+                                  .bay
+                                  .bayNum
+                                  .toString()),
+                    ],
+                  ),
                   IconButton(
                       iconSize: 60,
                       color: kPrimaryColor,

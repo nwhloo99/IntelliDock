@@ -3,6 +3,7 @@ import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
+import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class HaulerBookingScreen extends StatelessWidget {
@@ -24,34 +25,24 @@ class HaulerBookingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                    child: Text("Confirm booking",
+                    child: Text("Confirm Job",
                         style: TextStyle(fontSize: kHeaderFont1))),
-                Text(dockingBayRequest.bay.bayNum.toString(),
+                Text("Warehouse: " + dockingBayRequest.warehouseName.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 VideoStream(),
-                Text(
-                    "Est Time Remaining: " +
-                        dockingBayRequest.estimatedReadyTime.inMinutes
-                            .toString() +
-                        " mins",
+                Text(dockingBayRequest.bay.bayNum.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.all(10),
-                      side: BorderSide(color: kPrimaryColor, width: 1.0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(36)))),
-                  child: Text("Book", style: TextStyle(fontSize: kTextFont)),
-                  onPressed: () {
-                    simulatedModel.loadingQueue
-                        .acceptLoadingRequest(dockingBayRequest, haulerUser);
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => HaulerDashboardScreen(
-                                haulerUser, simulatedModel)));
-                  },
-                )
+                NavigationButton(
+                    label: "Accept",
+                    onPressed: () {
+                      simulatedModel.loadingQueue
+                          .acceptLoadingRequest(dockingBayRequest, haulerUser);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HaulerDashboardScreen(
+                                  haulerUser, simulatedModel)));
+                    }),
               ]),
         ),
       ),
