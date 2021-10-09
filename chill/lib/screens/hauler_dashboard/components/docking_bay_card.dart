@@ -1,6 +1,6 @@
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_booking/hauler_booking_screen.dart';
-import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
+import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayCard extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
-import 'package:chill/screens/hauler_dashboard/components/list_header.dart';
+import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayList extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:chill/screens/constants.dart';
-import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
-import 'package:chill/screens/hauler_dashboard/components/list_header.dart';
-import 'package:chill/screens/hauler_dashboard/components/navigation_button.dart';
+import 'package:chill/screens/widgets/entry_text.dart';
+import 'package:chill/screens/widgets/list_header.dart';
+import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class CurrentBooking extends StatefulWidget {
