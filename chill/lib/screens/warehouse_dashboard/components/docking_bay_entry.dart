@@ -16,6 +16,29 @@ class DockingBayEntry extends StatefulWidget {
 }
 
 class _DockingBayEntryState extends State<DockingBayEntry> {
+  Color getStatusColor(DockingBay bay) {
+    Color colorAvailable = Color(0xFF7CF3A0);
+    Color colorAwaiting = Color(0xFFFFC435);
+    Color colorOccupied = Color(0xFFF83212);
+    BayState state = bay.state;
+    switch (state) {
+      case BayState.Available:
+        {
+          return colorAvailable;
+        }
+
+      case BayState.Awaiting:
+        {
+          return colorAwaiting;
+        }
+
+      case BayState.Occupied:
+        {
+          return colorOccupied;
+        }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     String nxtHauler = '';
@@ -38,7 +61,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
 
     String currentHauler = '';
     String timeLft = '';
-    if (this.widget.dockingBay.state == bay_state.Occupied) {
+    if (this.widget.dockingBay.state == BayState.Occupied) {
       currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
       timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
     } else {
@@ -48,7 +71,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
 
     return Container(
         decoration: BoxDecoration(
-            border: Border.all(color: kPrimaryColor),
+            border: Border.all(color: getStatusColor(this.widget.dockingBay)),
             borderRadius: BorderRadius.all(Radius.circular(30))),
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -56,7 +79,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
           ListHeader(header: this.widget.dockingBay.bayNum.toString()),
           EntryText(
               data: "Status: " +
-                  (this.widget.dockingBay.state == bay_state.Occupied
+                  (this.widget.dockingBay.state == BayState.Occupied
                       ? "In use"
                       : "Free")),
           EntryText(data: "Next Hauler: " + nxtHauler),

@@ -24,4 +24,4 @@ enum hauler_state {
 }
 
 // Bay states
-enum bay_state { Available, Awaiting, Occupied }
+enum BayState { Available, Awaiting, Occupied }
