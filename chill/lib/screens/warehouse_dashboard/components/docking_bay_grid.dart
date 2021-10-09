@@ -1,4 +1,6 @@
+import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/warehouse_dashboard/components/docking_bay_entry.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
@@ -15,21 +17,17 @@ class _DockingBayGridState extends State<DockingBayGrid> {
   Widget build(BuildContext context) {
     return Expanded(
         child: GridView.count(
+            physics: ScrollPhysics(),
             primary: false,
             crossAxisCount: 3,
             children: <Widget>[
-          Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: kPrimaryColor),
-                  borderRadius: BorderRadius.all(Radius.circular(30))),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Column(children: <Widget>[
-                ListHeader(header: "Docking bay 1"),
-                EntryText(data: "Status: Free"),
-                EntryText(data: "Haulers arriving: None"),
-                EntryText(data: "ETA: -"),
-              ])),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
+          DockingBayEntry(dockingBay: DockingBay("Docking Bay 1")),
         ]));
   }
 }
