@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;
-  LoadingQueue loadingBayList;
+  LoadingQueue dockingBayList;
   PortMap portMap;
 
-  DockingBayList(this.loadingBayList, this.haulerUser, this.portMap,
+  DockingBayList(this.dockingBayList, this.haulerUser, this.portMap,
       {Key? key, required this.header})
       : super(key: key);
 
@@ -24,15 +24,15 @@ class DockingBayList extends StatefulWidget {
 class _DockingBayListState extends State<DockingBayList> {
   // Future<DockingBay> getData() async {
 
-  // }
-  List<DockingBayCard> cardList = [];
+  //
 
   @override
   Widget build(BuildContext context) {
-    this.widget.loadingBayList.requestList.forEach((bayRequest) {
+    List<DockingBayCard> cardList = [];
+    this.widget.dockingBayList.requestList.forEach((bayRequest) {
       DockingBayCard card = new DockingBayCard(
           bayRequest,
-          this.widget.loadingBayList,
+          this.widget.dockingBayList,
           this.widget.haulerUser,
           this.widget.portMap);
       cardList.add(card);
