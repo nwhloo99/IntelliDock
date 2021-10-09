@@ -6,7 +6,8 @@ class UnloadingHauler extends Hauler {
   /**
    * Constructor for UnloadingHauler 
    */
-  UnloadingHauler(expectedCargo, currentWeight) : super(expectedCargo) {
+  UnloadingHauler(num haulerNum, expectedCargo, currentWeight)
+      : super(haulerNum, expectedCargo) {
     this.EstimatedCargoTime =
         Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
     this.currentWeight = currentWeight;

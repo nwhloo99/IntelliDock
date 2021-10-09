@@ -13,8 +13,7 @@ class CreateLoadingRequest extends Command {
       this.targetQueue) {}
 
   void execute() {
-    LoadingRequest request =
-        new LoadingRequest(requestee, estimatedReadyTime, startTime);
+    LoadingRequest request = new LoadingRequest(requestee, startTime);
     this.targetQueue.receiveLoadingRequest(request);
   }
 }

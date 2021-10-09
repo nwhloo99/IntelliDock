@@ -15,7 +15,7 @@ class PortMap {
    * Constructor for Map, taking in the arrangement of the Warehouses
    */
   map(List<int> numOfWarehouses) {
-    List<Warehouse> tempList = List.empty();
+    List<Warehouse> tempList = [];
     for (int i = 0; i < numOfWarehouses.length; i++) {
       tempList.add(
           new Warehouse('Warehouse' + (i + 1).toString(), numOfWarehouses[i]));

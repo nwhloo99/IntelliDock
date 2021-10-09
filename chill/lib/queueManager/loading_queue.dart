@@ -2,7 +2,7 @@ import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/requests/loading_request.dart';
 
 class LoadingQueue {
-  List<LoadingRequest> requestList = new List.empty();
+  List<LoadingRequest> requestList = [];
   DateTime timer = DateTime.now();
 
   LoadingQueue() {}

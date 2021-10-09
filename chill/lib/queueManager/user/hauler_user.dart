@@ -8,7 +8,7 @@ import 'package:chill/queueManager/requests/request.dart';
  */
 class HaulerUser {
   Hauler self;
-  List<Request> currentBooking = new List.empty();
+  List<Request> currentBooking = [];
 
   HaulerUser(this.self) {}
 

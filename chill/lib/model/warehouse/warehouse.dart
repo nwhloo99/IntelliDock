@@ -22,8 +22,8 @@ class Warehouse {
    */
   factory Warehouse(String warehouseName, num numOfBays) {
     // Create {@code numOfBays} number of docking bays to initialize bays
-    List<DockingBay> tempListLoading = List.empty();
-    List<DockingBay> tempListUnloading = List.empty();
+    List<DockingBay> tempListLoading = [];
+    List<DockingBay> tempListUnloading = [];
     for (int i = 0; i < numOfBays; i++) {
       tempListLoading.add(new DockingBay(warehouseName + (i + 1).toString()));
       tempListUnloading.add(new DockingBay(warehouseName + (i + 1).toString()));

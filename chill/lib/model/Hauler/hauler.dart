@@ -1,4 +1,5 @@
-abstract class Hauler {
+class Hauler {
+  num haulerNum;
   String haulerStatus = '';
 
   // Time related Variables
@@ -10,12 +11,14 @@ abstract class Hauler {
   num currentWeight = 0;
   num expectedCargo;
 
-  Hauler(this.expectedCargo);
+  Hauler(this.haulerNum, this.expectedCargo);
 
   /**
    * Calculates and returns expectedWeight of cargo in hauler
    */
-  num getExpectedWeight();
+  num getExpectedWeight() {
+    return expectedCargo;
+  }
 
   /**
    * Returns current weight of cargo in Hauler
