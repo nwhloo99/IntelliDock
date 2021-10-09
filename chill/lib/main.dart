@@ -7,6 +7,7 @@ import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/user/loadingbay_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
+import 'package:chill/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: fFamily),
-      home: HaulerDashboardScreen(haulerUser, loadingQueue, simulationMap),
+      home: LoginPage(haulerUser, bayUser, loadingQueue, simulationMap),
     );
   }
 }
