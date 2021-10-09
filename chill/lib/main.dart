@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
     simulatedModel.loadingQueue
         .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           scaffoldBackgroundColor: kBackgroundColor,
