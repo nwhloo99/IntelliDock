@@ -18,8 +18,8 @@ class DockingBayEntry extends StatefulWidget {
 class _DockingBayEntryState extends State<DockingBayEntry> {
   Color getStatusColor(DockingBay bay) {
     Color colorAvailable = Color(0xFF7CF3A0);
-    Color colorAwaiting = Color(0xFFFFC435);
-    Color colorOccupied = Color(0xFFF83212);
+    Color colorAwaiting = Color(0xFFFEDE00);
+    Color colorOccupied = Color(0xFFFF3212);
     BayState state = bay.state;
     switch (state) {
       case BayState.Available:
@@ -62,8 +62,8 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
     String currentHauler = '';
     String timeLft = '';
     if (this.widget.dockingBay.state == BayState.Occupied) {
-      currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
-      timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
+      // currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
+      // timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
     } else {
       currentHauler = 'NIL';
       timeLft = 'NIL';
