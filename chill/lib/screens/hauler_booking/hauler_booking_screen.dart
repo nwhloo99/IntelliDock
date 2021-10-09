@@ -13,17 +13,28 @@ class HaulerBookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                    child: Text("Booking Screen",
+                    child: Text("Confirm booking",
                         style: TextStyle(fontSize: kHeaderFont1))),
-                Text(dockingBay),
-                Text("Est Time Remaining: " +
-                    this.estTime.inMinutes.toString() +
-                    " mins")
+                Text(dockingBay, style: TextStyle(fontSize: kHeaderFont2)),
+                Text(
+                    "Est Time Remaining: " +
+                        this.estTime.inMinutes.toString() +
+                        " mins",
+                    style: TextStyle(fontSize: kHeaderFont2)),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.all(10),
+                      side: BorderSide(color: kPrimaryColor, width: 1.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(36)))),
+                  child: Text("Book", style: TextStyle(fontSize: kTextFont)),
+                  onPressed: () {},
+                )
               ]),
         ),
       ),
