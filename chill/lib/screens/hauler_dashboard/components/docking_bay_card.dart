@@ -1,4 +1,7 @@
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/loading_queue.dart';
+import 'package:chill/queueManager/requests/loading_request.dart';
+import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_booking/hauler_booking_screen.dart';
@@ -6,8 +9,13 @@ import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayCard extends StatefulWidget {
-  Request dockingBayRequest;
-  DockingBayCard(this.dockingBayRequest, {Key? key}) : super(key: key);
+  HaulerUser haulerUser;
+  LoadingRequest dockingBayRequest;
+  LoadingQueue loadingQueue;
+
+  DockingBayCard(this.dockingBayRequest, this.loadingQueue, this.haulerUser,
+      {Key? key})
+      : super(key: key);
 
   @override
   _DockingBayCardState createState() => _DockingBayCardState();
@@ -52,15 +60,9 @@ class _DockingBayCardState extends State<DockingBayCard> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => HaulerBookingScreen(
-                                    dockingBay: this
-                                        .widget
-                                        .dockingBayRequest
-                                        .bay
-                                        .bayName,
-                                    estTime: this
-                                        .widget
-                                        .dockingBayRequest
-                                        .estimatedReadyTime)));
+                                    this.widget.haulerUser,
+                                    this.widget.loadingQueue,
+                                    this.widget.dockingBayRequest)));
                       },
                       icon: Icon(Icons.arrow_right))
                 ])));

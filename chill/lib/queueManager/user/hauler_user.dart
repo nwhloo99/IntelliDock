@@ -1,5 +1,4 @@
 import 'package:chill/model/hauler/hauler.dart';
-import 'package:chill/queueManager/requests/loading_request.dart';
 import 'package:chill/queueManager/requests/request.dart';
 
 /**
@@ -16,8 +15,8 @@ class HaulerUser {
     return self;
   }
 
-  void addCurrentRequest(LoadingRequest request) {
+  void addCurrentRequest(Request request) {
     currentBooking.add(request);
-    currentBooking.sort();
+    currentBooking.sort((a, b) => a.compareEstimate(b));
   }
 }

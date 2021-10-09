@@ -13,6 +13,7 @@ class HaulerDashboardScreen extends StatefulWidget {
   final HaulerUser haulerUser;
   final LoadingQueue loadingQueue;
   final PortMap simulationMap;
+
   const HaulerDashboardScreen(
       this.haulerUser, this.loadingQueue, this.simulationMap,
       {Key? key})
@@ -27,11 +28,17 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
   Widget build(BuildContext context) {
     //Temp Function to simulate loading list
     this.widget.loadingQueue.receiveLoadingRequest(new LoadingRequest(
-        new DockingBay('L1'), new DateTime(2021, 10, 9, 18, 0)));
+        this.widget.simulationMap,
+        new DockingBay('L1'),
+        new DateTime(2021, 10, 9, 18, 0)));
     this.widget.loadingQueue.receiveLoadingRequest(new LoadingRequest(
-        new DockingBay('L2'), new DateTime(2021, 10, 10, 8, 0)));
+        this.widget.simulationMap,
+        new DockingBay('L2'),
+        new DateTime(2021, 10, 10, 8, 0)));
     this.widget.loadingQueue.receiveLoadingRequest(new LoadingRequest(
-        new DockingBay('L3'), new DateTime(2021, 10, 9, 10, 0)));
+        this.widget.simulationMap,
+        new DockingBay('L3'),
+        new DateTime(2021, 10, 9, 10, 0)));
 
     return SafeArea(
         child: Scaffold(
@@ -44,12 +51,14 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
                   DashboardButtons(),
-                  CurrentBooking(),
+                  CurrentBooking(this.widget.haulerUser),
                   Expanded(
                       child: Row(children: [
-                    DockingBayList(this.widget.loadingQueue.requestList,
+                    DockingBayList(
+                        this.widget.loadingQueue, this.widget.haulerUser,
                         header: "Loading bay"),
-                    DockingBayList(new List.empty(), header: "Unloading bay")
+                    DockingBayList(new LoadingQueue(), this.widget.haulerUser,
+                        header: "Unloading bay")
                   ]))
                 ]))));
   }

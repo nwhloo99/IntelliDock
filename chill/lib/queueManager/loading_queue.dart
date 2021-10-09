@@ -4,7 +4,6 @@ import 'package:chill/queueManager/requests/loading_request.dart';
 class LoadingQueue {
   List<LoadingRequest> requestList = [];
   DateTime timer = DateTime.now();
-
   LoadingQueue() {}
 
   updateTime() {
@@ -21,7 +20,7 @@ class LoadingQueue {
    */
   void acceptLoadingRequest(LoadingRequest request, HaulerUser haulerUser) {
     requestList.remove(request);
-    request.pushToModel(haulerUser.getSelf());
+    request.pushToModel(haulerUser);
   }
 
   /**

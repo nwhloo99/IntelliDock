@@ -1,5 +1,5 @@
+import 'package:chill/constants.dart';
 import 'package:chill/model/Hauler/hauler.dart';
-import 'package:chill/model/constants.dart';
 
 // Hauler that is going to Unload Cargo
 class UnloadingHauler extends Hauler {
