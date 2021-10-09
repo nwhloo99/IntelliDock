@@ -1,8 +1,8 @@
 import 'package:chill/queueManager/user/hauler_user.dart';
-import 'package:chill/queueManager/requests.dart';
+import 'package:chill/queueManager/requests/loading_request.dart';
 
 class LoadingQueue {
-  List<Request> requestList = new List.empty();
+  List<LoadingRequest> requestList = new List.empty();
   DateTime timer = DateTime.now();
 
   LoadingQueue() {}
@@ -19,7 +19,7 @@ class LoadingQueue {
   /**
    * Handles accept_loading_request input
    */
-  void acceptLoadingRequest(Request request, HaulerUser haulerUser) {
+  void acceptLoadingRequest(LoadingRequest request, HaulerUser haulerUser) {
     requestList.remove(request);
     request.pushToModel(haulerUser.getSelf());
   }
@@ -27,8 +27,8 @@ class LoadingQueue {
   /**
    * Handles create_loading_request input
    */
-  void receiveLoadingRequest(Request request) {
+  void receiveLoadingRequest(LoadingRequest request) {
     requestList.add(request);
-    requestList.sort((a, b) => a.compare(b));
+    requestList.sort((a, b) => a.compareEstimate(b));
   }
 }

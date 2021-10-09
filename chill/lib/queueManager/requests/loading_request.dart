@@ -1,11 +1,13 @@
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/requests/request.dart';
 
-class Request {
-  DockingBay loadingBay;
+class LoadingRequest extends Request {
   Duration estimatedReadyTime;
+  DateTime startTime;
 
-  Request(this.loadingBay, this.estimatedReadyTime) {}
+  LoadingRequest(DockingBay bay, this.estimatedReadyTime, this.startTime)
+      : super(bay) {}
 
   void updateDuration(Duration change) {
     estimatedReadyTime -= change;
@@ -15,7 +17,11 @@ class Request {
     // Sends Request to model to stimulat estimated time
   }
 
-  int compare(Request target) {
+  int compareEstimate(LoadingRequest target) {
     return (this.estimatedReadyTime - target.estimatedReadyTime).inMinutes;
+  }
+
+  int compareStart(LoadingRequest target) {
+    return (this.startTime.difference(target.startTime)).inMinutes;
   }
 }
