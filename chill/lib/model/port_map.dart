@@ -46,6 +46,7 @@ class PortMap {
   void hauler_travelling_to_unload(
       Hauler hauler, String warehouseName, num bayNumber) {
     hauler.setState_TravellingToUnload();
+    hauler.EstimatedTravelTime = Duration(minutes: 10);
     warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
