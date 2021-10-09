@@ -20,7 +20,7 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                 padding: EdgeInsets.all(kDefaultPadding),
                 child: Column(children: <Widget>[
                   Container(
-                      child: Text("Loading Dashboard",
+                      child: Text("Hauler Dashboard",
                           style: TextStyle(
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
