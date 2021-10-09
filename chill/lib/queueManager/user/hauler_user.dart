@@ -21,6 +21,6 @@ class HaulerUser {
   }
 
   String haulerName() {
-    return "Hauler " + self.haulerNum.toString();
+    return "Hauler " + self.haulerName;
   }
 }
