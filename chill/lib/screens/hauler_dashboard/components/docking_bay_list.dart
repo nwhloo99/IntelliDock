@@ -1,6 +1,7 @@
 import 'package:chill/model/port_map.dart';
 import 'package:chill/queueManager/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
+import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,18 @@ class _DockingBayListState extends State<DockingBayList> {
         child: Expanded(
             child: Column(
       children: <Widget>[
-        ListHeader(header: this.widget.header),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              ListHeader(header: this.widget.header),
+              IconButton(
+                  color: kPrimaryColor,
+                  iconSize: 30,
+                  onPressed: () {
+                    print("REFRESH");
+                  },
+                  icon: Icon(Icons.refresh))
+            ]),
         Expanded(
             child: Container(
                 child: ListView(
