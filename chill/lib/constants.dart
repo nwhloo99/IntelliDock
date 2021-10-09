@@ -22,3 +22,6 @@ enum hauler_state {
   TravellingToUnload,
   Waiting
 }
+
+// Bay states
+enum bay_state { Available, Awaiting, Occupied }

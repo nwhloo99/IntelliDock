@@ -1,7 +1,8 @@
+import 'package:chill/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {
-  bool isOccupied = false;
+  bay_state state = bay_state.Available;
   num bayNum;
 
   // Time related elements
@@ -25,7 +26,7 @@ class DockingBay {
    */
   bool haulerLeave() {
     // Reset Variables
-    this.isOccupied = false;
+    this.state = bay_state.Available;
     this.startTime = DateTime.now();
     this.estimatedDuration = Duration();
     return true;
@@ -37,7 +38,7 @@ class DockingBay {
    */
   bool haulerEnter(Hauler hauler) {
     incomingHauler.remove(hauler);
-    this.isOccupied = true;
+    this.state = bay_state.Occupied;
     this.startTime = DateTime.now();
     this.estimatedDuration = Duration();
     this.currentHauler = hauler;
@@ -48,6 +49,7 @@ class DockingBay {
    * hauler projected to arrive at warehouse with the estimated time
    */
   bool haulerOTW(Hauler hauler) {
+    this.state = bay_state.Awaiting;
     incomingHauler.add(hauler);
     return true;
   }
