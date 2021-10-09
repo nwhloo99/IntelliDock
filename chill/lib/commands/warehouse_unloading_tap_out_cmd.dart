@@ -1,6 +1,6 @@
 import 'package:chill/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
-import 'package:chill/port_map.dart';
+import 'package:chill/model/port_map.dart';
 
 class WarehouseTapOutCommand extends Command {
   Hauler haulerNumber;
@@ -12,6 +12,6 @@ class WarehouseTapOutCommand extends Command {
       this.haulerNumber, this.warehouseNumber, this.bayNumber, this.map) {}
 
   void execute() {
-    this.map.warehouse_out(haulerNumber, warehouseNumber, bayNumber);
+    this.map.warehouse_unloading_out(haulerNumber, warehouseNumber, bayNumber);
   }
 }

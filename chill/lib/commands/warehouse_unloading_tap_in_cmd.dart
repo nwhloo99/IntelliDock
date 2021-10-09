@@ -1,6 +1,6 @@
 import 'package:chill/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
-import 'package:chill/port_map.dart';
+import 'package:chill/model/port_map.dart';
 
 class WarehouseTapOutCommand extends Command {
   Hauler haulerNumber;
