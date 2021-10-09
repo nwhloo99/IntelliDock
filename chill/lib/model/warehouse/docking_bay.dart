@@ -1,4 +1,4 @@
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {

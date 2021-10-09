@@ -1,4 +1,4 @@
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/warehouse.dart';

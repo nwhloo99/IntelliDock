@@ -1,4 +1,4 @@
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ListHeader extends StatelessWidget {

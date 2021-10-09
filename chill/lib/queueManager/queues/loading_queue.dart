@@ -1,7 +1,7 @@
 import 'package:chill/queueManager/queues/queue.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 
 class LoadingQueue extends Queue {
   LoadingQueue() {}

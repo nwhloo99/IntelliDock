@@ -3,7 +3,7 @@ import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/warehouse.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:chill/screens/warehouse_dashboard/warehouse_dashboard_screen.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';

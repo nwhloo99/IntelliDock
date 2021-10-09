@@ -1,4 +1,4 @@
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 
 class Hauler {
   num haulerNum;

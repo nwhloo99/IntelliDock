@@ -1,6 +1,6 @@
 import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
-import 'package:chill/constants.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
