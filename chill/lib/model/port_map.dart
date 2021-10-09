@@ -1,6 +1,7 @@
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/warehouse/port.dart';
 import 'package:chill/model/warehouse/warehouse.dart';
+import 'package:flutter/cupertino.dart';
 
 /* 
  * Map Model containing all 5 Warehouses and the Port
@@ -17,8 +18,8 @@ class PortMap {
   PortMap(List<int> numOfWarehouses) {
     List<Warehouse> tempList = [];
     for (int i = 0; i < numOfWarehouses.length; i++) {
-      tempList.add(
-          new Warehouse('Warehouse' + (i + 1).toString(), numOfWarehouses[i]));
+      tempList
+          .add(new Warehouse(String.fromCharCode(65 + i), numOfWarehouses[i]));
     }
     warehouses = tempList;
     startingPort = new port();
