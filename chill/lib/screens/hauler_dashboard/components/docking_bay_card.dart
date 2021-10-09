@@ -34,29 +34,9 @@ class _DockingBayCardState extends State<DockingBayCard> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      EntryText(
-                          data: "Docking bay: " +
-                              this
-                                  .widget
-                                  .dockingBayRequest
-                                  .bay
-                                  .bayNum
-                                  .toString()),
-                      EntryText(
-                          data: "Est Time Remaining: " +
-                              this
-                                  .widget
-                                  .dockingBayRequest
-                                  .estimatedReadyTime
-                                  .inMinutes
-                                  .toString() +
-                              " mins")
-                    ],
-                  ),
+                  EntryText(
+                      data: "Docking bay: " +
+                          this.widget.dockingBayRequest.bay.bayNum.toString()),
                   IconButton(
                       iconSize: 60,
                       color: kPrimaryColor,
