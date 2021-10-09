@@ -96,7 +96,6 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
                       .haulerUser
                       .currentBooking
                       .first
-                      .bay
                       .bayNum
                       .toString()),
             ],

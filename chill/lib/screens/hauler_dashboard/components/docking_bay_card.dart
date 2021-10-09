@@ -36,7 +36,7 @@ class _DockingBayCardState extends State<DockingBayCard> {
                 children: <Widget>[
                   EntryText(
                       data: "Docking bay: " +
-                          this.widget.dockingBayRequest.bay.bayNum.toString()),
+                          this.widget.dockingBayRequest.bayNum.toString()),
                   IconButton(
                       iconSize: 60,
                       color: kPrimaryColor,

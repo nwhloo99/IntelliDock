@@ -26,7 +26,7 @@ class HaulerBookingScreen extends StatelessWidget {
                 Container(
                     child: Text("Confirm booking",
                         style: TextStyle(fontSize: kHeaderFont1))),
-                Text(dockingBayRequest.bay.bayNum.toString(),
+                Text(dockingBayRequest.bayNum.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 VideoStream(),
                 OutlinedButton(

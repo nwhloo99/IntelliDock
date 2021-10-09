@@ -30,12 +30,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading, simulatedModel.map, new DockingBay(2), 'A'));
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading, simulatedModel.map, new DockingBay(3), 'A'));
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading, simulatedModel.map, new DockingBay(1), 'A'));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 2, 'A'));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 3, 'A'));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
