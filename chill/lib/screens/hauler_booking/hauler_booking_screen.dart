@@ -30,6 +30,7 @@ class HaulerBookingScreen extends StatelessWidget {
                         style: TextStyle(fontSize: kHeaderFont1))),
                 Text(dockingBayRequest.bay.bayName,
                     style: TextStyle(fontSize: kHeaderFont2)),
+                VideoStream(),
                 Text(
                     "Est Time Remaining: " +
                         dockingBayRequest.estimatedReadyTime.inMinutes
@@ -57,5 +58,22 @@ class HaulerBookingScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class VideoStream extends StatelessWidget {
+  const VideoStream({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+        width: size.width * 0.6,
+        height: size.height * 0.5,
+        child: Container(
+            color: Color(0xFF57A5B8),
+            child: Center(
+                child: Text("Video Feed of docking bay",
+                    style: TextStyle(fontSize: kHeaderFont1)))));
   }
 }
