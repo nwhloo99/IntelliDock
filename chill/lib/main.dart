@@ -18,7 +18,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  HaulerUser user = new HaulerUser(new Hauler(0, 0));
+  // Example HaulerUser object
+  HaulerUser user = new HaulerUser(new Hauler(0, 0, 0));
   LoadingQueue loadingQueue = new LoadingQueue();
   PortMap simulationMap = new PortMap();
 

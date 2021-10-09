@@ -1,5 +1,5 @@
-import 'package:chill/screens/hauler_dashboard/components/navigation_button.dart';
 import 'package:chill/screens/warehouse_dashboard/warehouse_dashboard_screen.dart';
+import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class DashboardButtons extends StatelessWidget {
