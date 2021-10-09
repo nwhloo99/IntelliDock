@@ -1,7 +1,10 @@
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/port_map.dart';
+import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/model/warehouse/warehouse.dart';
 import 'package:chill/queueManager/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
+import 'package:chill/queueManager/user/loadingbay_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +22,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // Example HaulerUser object
-  HaulerUser user = new HaulerUser(new Hauler(0, 0, 0));
+  HaulerUser haulerUser = new HaulerUser(new Hauler(0, 0, 0));
+  LoadingBayUser bayUser =
+      new LoadingBayUser(new DockingBay('L1'), new Warehouse('A', 10));
   LoadingQueue loadingQueue = new LoadingQueue();
   PortMap simulationMap = new PortMap();
 
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: fFamily),
-      home: HaulerDashboardScreen(user, loadingQueue, simulationMap),
+      home: HaulerDashboardScreen(haulerUser, loadingQueue, simulationMap),
     );
   }
 }
