@@ -1,3 +1,5 @@
+import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
@@ -5,7 +7,8 @@ import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class CurrentBooking extends StatefulWidget {
-  const CurrentBooking({Key? key}) : super(key: key);
+  final HaulerUser haulerUser;
+  const CurrentBooking(this.haulerUser, {Key? key}) : super(key: key);
 
   @override
   _CurrentBookingState createState() => _CurrentBookingState();
@@ -27,13 +30,17 @@ class _CurrentBookingState extends State<CurrentBooking> {
           ListHeader(header: "Current Job"),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[CurrentDockingBayInfo(), CurrentJobInfo()])
+              children: <Widget>[
+                CurrentDockingBayInfo(this.widget.haulerUser),
+                CurrentJobInfo(this.widget.haulerUser)
+              ])
         ]));
   }
 }
 
 class CurrentJobInfo extends StatelessWidget {
-  const CurrentJobInfo({Key? key}) : super(key: key);
+  final HaulerUser haulerUser;
+  const CurrentJobInfo(this.haulerUser, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +57,8 @@ class CurrentJobInfo extends StatelessWidget {
 }
 
 class CurrentDockingBayInfo extends StatefulWidget {
-  const CurrentDockingBayInfo({Key? key}) : super(key: key);
+  final HaulerUser haulerUser;
+  const CurrentDockingBayInfo(this.haulerUser, {Key? key}) : super(key: key);
 
   @override
   _CurrentDockingBayInfoState createState() => _CurrentDockingBayInfoState();
@@ -62,11 +70,26 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
     return Container(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        EntryText(data: "Docking Bay"),
-        EntryText(data: "A2"),
-        EntryText(data: "Est Time: 180 mins")
-      ],
+      children: this.widget.haulerUser.currentBooking.isEmpty
+          ? <Widget>[EntryText(data: "No Request")]
+          : <Widget>[
+              EntryText(data: "Docking Bay"),
+              EntryText(
+                  data:
+                      this.widget.haulerUser.currentBooking.first.bay.bayName),
+              EntryText(
+                data: "Est Time Remaining: " +
+                    this
+                        .widget
+                        .haulerUser
+                        .currentBooking
+                        .first
+                        .estimatedReadyTime
+                        .inMinutes
+                        .toString() +
+                    " mins",
+              )
+            ],
     ));
   }
 }

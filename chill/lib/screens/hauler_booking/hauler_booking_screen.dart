@@ -1,13 +1,21 @@
+import 'package:chill/model/port_map.dart';
+import 'package:chill/queueManager/loading_queue.dart';
+import 'package:chill/queueManager/requests/loading_request.dart';
+import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class HaulerBookingScreen extends StatelessWidget {
-  const HaulerBookingScreen(
-      {Key? key, required this.dockingBay, required this.estTime})
-      : super(key: key);
+  final HaulerUser haulerUser;
+  final LoadingQueue loadingQueue;
+  final LoadingRequest dockingBayRequest;
+  final PortMap portMap;
 
-  final String dockingBay;
-  final Duration estTime;
+  const HaulerBookingScreen(
+      this.haulerUser, this.loadingQueue, this.dockingBayRequest, this.portMap,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +28,12 @@ class HaulerBookingScreen extends StatelessWidget {
                 Container(
                     child: Text("Confirm booking",
                         style: TextStyle(fontSize: kHeaderFont1))),
-                Text(dockingBay, style: TextStyle(fontSize: kHeaderFont2)),
+                Text(dockingBayRequest.bay.bayName,
+                    style: TextStyle(fontSize: kHeaderFont2)),
                 Text(
                     "Est Time Remaining: " +
-                        this.estTime.inMinutes.toString() +
+                        dockingBayRequest.estimatedReadyTime.inMinutes
+                            .toString() +
                         " mins",
                     style: TextStyle(fontSize: kHeaderFont2)),
                 OutlinedButton(
@@ -34,7 +44,13 @@ class HaulerBookingScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(36)))),
                   child: Text("Book", style: TextStyle(fontSize: kTextFont)),
                   onPressed: () {
-                    Navigator.pop(context);
+                    loadingQueue.acceptLoadingRequest(
+                        dockingBayRequest, haulerUser);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HaulerDashboardScreen(
+                                haulerUser, loadingQueue, portMap)));
                   },
                 )
               ]),

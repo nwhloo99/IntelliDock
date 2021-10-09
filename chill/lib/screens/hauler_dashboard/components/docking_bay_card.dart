@@ -1,21 +1,24 @@
+import 'package:chill/model/port_map.dart';
+import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/loading_queue.dart';
+import 'package:chill/queueManager/requests/loading_request.dart';
+import 'package:chill/queueManager/user/hauler_user.dart';
+import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_booking/hauler_booking_screen.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayCard extends StatefulWidget {
-  DockingBayCard(
-      {Key? key,
-      required this.containerNumber,
-      required this.dockingBay,
-      required this.pickupTime,
-      required this.estTime})
-      : super(key: key);
+  HaulerUser haulerUser;
+  LoadingRequest dockingBayRequest;
+  LoadingQueue loadingQueue;
+  PortMap portMap;
 
-  String containerNumber;
-  String dockingBay;
-  TimeOfDay pickupTime;
-  Duration estTime;
+  DockingBayCard(
+      this.dockingBayRequest, this.loadingQueue, this.haulerUser, this.portMap,
+      {Key? key})
+      : super(key: key);
 
   @override
   _DockingBayCardState createState() => _DockingBayCardState();
@@ -38,10 +41,17 @@ class _DockingBayCardState extends State<DockingBayCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      EntryText(data: "Docking bay: " + this.widget.dockingBay),
+                      EntryText(
+                          data: "Docking bay: " +
+                              this.widget.dockingBayRequest.bay.bayName),
                       EntryText(
                           data: "Est Time Remaining: " +
-                              this.widget.estTime.inMinutes.toString() +
+                              this
+                                  .widget
+                                  .dockingBayRequest
+                                  .estimatedReadyTime
+                                  .inMinutes
+                                  .toString() +
                               " mins")
                     ],
                   ),
@@ -53,8 +63,10 @@ class _DockingBayCardState extends State<DockingBayCard> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => HaulerBookingScreen(
-                                    dockingBay: this.widget.dockingBay,
-                                    estTime: this.widget.estTime)));
+                                    this.widget.haulerUser,
+                                    this.widget.loadingQueue,
+                                    this.widget.dockingBayRequest,
+                                    this.widget.portMap)));
                       },
                       icon: Icon(Icons.arrow_right))
                 ])));

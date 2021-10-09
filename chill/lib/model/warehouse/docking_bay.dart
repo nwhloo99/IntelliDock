@@ -18,6 +18,8 @@ class DockingBay {
    */
   DockingBay(this.bayName) {}
 
+  // Hauler Methods
+
   /**
    * haulerLeaves re-initializes the variables in docking_bay by reseting
    * them to its original state. 
@@ -45,6 +47,8 @@ class DockingBay {
     this.currentHauler = hauler;
     return true;
   }
+
+  // Timer Methods
 
   /**
    * private method _calEstTime to dynamically update the estimatedDuration

@@ -4,7 +4,7 @@ import 'package:chill/model/hauler/hauler.dart';
  * Port monitors which Haulers are currently stationed here.
  */
 class port {
-  List<Hauler> _stationedHaulers = new List.empty();
+  List<Hauler> _stationedHaulers = [];
 
   port() {}
 
