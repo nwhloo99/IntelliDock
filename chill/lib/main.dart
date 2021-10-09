@@ -1,12 +1,10 @@
 import 'package:chill/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
-import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/model/warehouse/warehouse.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
-import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,24 +28,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(2),
-        'A',
-        DateTime(2021, 10, 9, 21, 0)));
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(3),
-        'A',
-        DateTime(2021, 10, 9, 22, 0)));
-    simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(1),
-        'A',
-        DateTime(2021, 10, 9, 20, 0)));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 2, 'A'));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 3, 'A'));
+    simulatedModel.loadingQueue
+        .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

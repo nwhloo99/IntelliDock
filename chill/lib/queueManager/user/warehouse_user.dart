@@ -1,4 +1,3 @@
-import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/model/warehouse/warehouse.dart';
 
 /**

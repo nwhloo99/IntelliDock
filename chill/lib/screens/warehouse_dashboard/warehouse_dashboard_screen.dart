@@ -1,5 +1,5 @@
 import 'package:chill/queueManager/user/warehouse_user.dart';
-import 'package:chill/screens/constants.dart';
+import 'package:chill/constants.dart';
 import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid.dart';
 import 'package:flutter/material.dart';
 

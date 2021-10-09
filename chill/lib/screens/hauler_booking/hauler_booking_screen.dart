@@ -1,7 +1,7 @@
 import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
-import 'package:chill/screens/constants.dart';
+import 'package:chill/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class HaulerBookingScreen extends StatelessWidget {
                 Text("Warehouse: " + dockingBayRequest.warehouseName.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 VideoStream(),
-                Text(dockingBayRequest.bay.bayNum.toString(),
+                Text(dockingBayRequest.bayNum.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 NavigationButton(
                     label: "Accept",
