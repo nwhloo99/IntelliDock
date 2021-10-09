@@ -12,6 +12,7 @@ class DashboardButtons extends StatelessWidget {
           alignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             NavigationButton(label: "Map", onPressed: () {}),
+            NavigationButton(label: "Warehouse", onPressed: () {}),
             NavigationButton(label: "Help", onPressed: () {})
           ],
         ));
