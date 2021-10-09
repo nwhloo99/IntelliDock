@@ -1,5 +1,6 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/model/port_map.dart';
-import 'package:chill/queueManager/loading_queue.dart';
+import 'package:chill/queueManager/queues/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
@@ -9,10 +10,9 @@ import 'package:flutter/material.dart';
 class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;
-  LoadingQueue dockingBayList;
-  PortMap portMap;
+  Model SimulatedModel;
 
-  DockingBayList(this.dockingBayList, this.haulerUser, this.portMap,
+  DockingBayList(this.haulerUser, this.SimulatedModel,
       {Key? key, required this.header})
       : super(key: key);
 
@@ -28,12 +28,9 @@ class _DockingBayListState extends State<DockingBayList> {
   @override
   Widget build(BuildContext context) {
     List<DockingBayCard> cardList = [];
-    this.widget.dockingBayList.requestList.forEach((bayRequest) {
+    this.widget.SimulatedModel.loadingQueue.requestList.forEach((bayRequest) {
       DockingBayCard card = new DockingBayCard(
-          bayRequest,
-          this.widget.dockingBayList,
-          this.widget.haulerUser,
-          this.widget.portMap);
+          bayRequest, this.widget.SimulatedModel, this.widget.haulerUser);
       cardList.add(card);
     });
 

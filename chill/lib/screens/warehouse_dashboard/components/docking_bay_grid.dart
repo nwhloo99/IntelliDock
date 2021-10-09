@@ -1,4 +1,4 @@
-import 'package:chill/queueManager/user/loadingbay_user.dart';
+import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/screens/warehouse_dashboard/components/docking_bay_entry.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class _DockingBayGridState extends State<DockingBayGrid> {
   Widget build(BuildContext context) {
     List<DockingBayEntry> cardList = [];
 
-    this.widget.warehouseUser.parentWarehouse.LoadingBays.forEach((bay) {
+    this.widget.warehouseUser.parentWarehouse.loadingBays.forEach((bay) {
       DockingBayEntry card = new DockingBayEntry(dockingBay: bay);
       cardList.add(card);
     });

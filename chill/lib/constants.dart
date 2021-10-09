@@ -1,11 +1,3 @@
-import 'package:chill/model/port_map.dart';
-import 'package:chill/model/warehouse/docking_bay.dart';
-import 'package:chill/queueManager/loading_queue.dart';
-import 'package:chill/queueManager/requests/loading_request.dart';
-
-// Average Loading Time kg/min
-const AVG_Loading_Time = 1;
-
 // Average Queueing Delay in minutes
 const Queue_Delay = 60;
 
@@ -13,11 +5,14 @@ const Queue_Delay = 60;
 enum request_type { Loading, Unloading }
 
 // Time to Warehouses in minutes
-const num TTWarehouseA = 10;
-const num TTWarehouseB = 6;
-const num TTWarehouseC = 8;
-const num TTWarehouseD = 20;
-const num TTWarehouseE = 20;
+const num TTWarehouseA = 10; // 17 Dock Bays
+const num TTWarehouseB = 6; // 17 Dock Bays
+const num TTWarehouseC = 20; // 8 Docks Bays
+const num TTWarehouseD = 20; // 8 Dock Bays
+const num TTWarehouseE = 8; // 21 Dock bays
+
+// Time to Load / Unload Container in mins per container
+const num containerTransferTime = 20;
 
 // Hauler states
 enum hauler_state {

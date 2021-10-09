@@ -75,8 +75,14 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
           : <Widget>[
               EntryText(data: "Docking Bay"),
               EntryText(
-                  data:
-                      this.widget.haulerUser.currentBooking.first.bay.bayName),
+                  data: this
+                      .widget
+                      .haulerUser
+                      .currentBooking
+                      .first
+                      .bay
+                      .bayNum
+                      .toString()),
               EntryText(
                 data: "Est Time Remaining: " +
                     this

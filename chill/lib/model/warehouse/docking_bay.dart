@@ -2,22 +2,20 @@ import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {
   bool isOccupied = false;
-  String bayName;
+  num bayNum;
 
   // Time related elements
   DateTime startTime = DateTime.now();
   Duration estimatedDuration = Duration();
 
   // Hauler-related
-  num initialHaulerWeight = 0;
-  num finalHaulerWeight = 0;
   late Hauler currentHauler;
   List<Hauler> incomingHauler = [];
 
   /**
    * Arbitrary Constructor for docking_bay
    */
-  DockingBay(this.bayName) {}
+  DockingBay(this.bayNum) {}
 
   // Hauler Methods
 
@@ -30,8 +28,6 @@ class DockingBay {
     this.isOccupied = false;
     this.startTime = DateTime.now();
     this.estimatedDuration = Duration();
-    this.initialHaulerWeight = 0;
-    this.finalHaulerWeight = 0;
     return true;
   }
 
@@ -43,9 +39,7 @@ class DockingBay {
     incomingHauler.remove(hauler);
     this.isOccupied = true;
     this.startTime = DateTime.now();
-    this.estimatedDuration = hauler.EstimatedCargoTime;
-    this.initialHaulerWeight = hauler.getCurrentWeight();
-    this.finalHaulerWeight = hauler.getExpectedWeight();
+    this.estimatedDuration = Duration();
     this.currentHauler = hauler;
     return true;
   }

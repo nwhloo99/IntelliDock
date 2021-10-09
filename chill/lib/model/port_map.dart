@@ -14,7 +14,7 @@ class PortMap {
   /**
    * Constructor for Map, taking in the arrangement of the Warehouses
    */
-  map(List<int> numOfWarehouses) {
+  PortMap(List<int> numOfWarehouses) {
     List<Warehouse> tempList = [];
     for (int i = 0; i < numOfWarehouses.length; i++) {
       tempList.add(
@@ -30,43 +30,47 @@ class PortMap {
    * Handles hauler_travelling_to_load input
    */
   void hauler_travelling_to_load(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_TravellingToLoad();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .LoadingBays[(bayNumber - 1).toInt()]
-        .haulerOTW(haulerNumber);
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_TravellingToLoad();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .loadingBays[(bayNumber - 1).toInt()]
+        .haulerOTW(hauler);
   }
 
   /**
    * Handles hauler_travelling_to_unload input
    */
   void hauler_travelling_to_unload(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_TravellingToUnload();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .LoadingBays[(bayNumber - 1).toInt()]
-        .haulerOTW(haulerNumber);
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_TravellingToUnload();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .loadingBays[(bayNumber - 1).toInt()]
+        .haulerOTW(hauler);
   }
 
   /**
    * Handles warehouse_loading_tap_in input
    */
   void warehouse_loading_in(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_Loading();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .LoadingBays[(bayNumber - 1).toInt()]
-        .haulerEnter(haulerNumber);
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_Loading();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .loadingBays[(bayNumber - 1).toInt()]
+        .haulerEnter(hauler);
   }
 
   /**
    * Handles warehouse_loading_tap_out input
    */
   void warehouse_loading_out(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_Waiting();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .LoadingBays[(bayNumber - 1).toInt()]
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_Waiting();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .loadingBays[(bayNumber - 1).toInt()]
         .haulerLeave();
   }
 
@@ -74,21 +78,23 @@ class PortMap {
    * Handles warehouse_unloading_tap_in input
    */
   void warehouse_unloading_in(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_Unloading();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .UnloadingBays[(bayNumber - 1).toInt()]
-        .haulerEnter(haulerNumber);
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_Unloading();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .unloadingBays[(bayNumber - 1).toInt()]
+        .haulerEnter(hauler);
   }
 
   /**
    * Handles warehouse_unloading_tap_out input
    */
   void warehouse_unloading_out(
-      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
-    haulerNumber.setState_Waiting();
-    warehouses[(warehouseNumber - 1).toInt()]
-        .UnloadingBays[(bayNumber - 1).toInt()]
+      Hauler hauler, String warehouseName, num bayNumber) {
+    hauler.setState_Waiting();
+    warehouses
+        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
+        .unloadingBays[(bayNumber - 1).toInt()]
         .haulerLeave();
   }
 
@@ -103,16 +109,16 @@ class PortMap {
   /**
    * Handles port_loading_tap_out input
    */
-  void port_out_loading(Hauler haulerNumber) {
-    haulerNumber.setState_TravellingToLoad();
-    startingPort.haulerExit(haulerNumber);
+  void port_loading_out(Hauler hauler) {
+    hauler.setState_TravellingToLoad();
+    startingPort.haulerExit(hauler);
   }
 
   /**
    * Handles port_unloading_tap_out input
    */
-  void port_out_unloading(Hauler haulerNumber) {
-    haulerNumber.setState_TravellingToUnload();
-    startingPort.haulerExit(haulerNumber);
+  void port_out_unloading(Hauler hauler) {
+    hauler.setState_TravellingToUnload();
+    startingPort.haulerExit(hauler);
   }
 }

@@ -1,7 +1,5 @@
 import 'package:chill/model/port_map.dart';
-import 'package:chill/model/warehouse/docking_bay.dart';
-import 'package:chill/queueManager/loading_queue.dart';
-import 'package:chill/queueManager/requests/loading_request.dart';
+import 'package:chill/queueManager/queues/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/screens/constants.dart';
@@ -11,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class DockingBayCard extends StatefulWidget {
   HaulerUser haulerUser;
-  LoadingRequest dockingBayRequest;
+  Request dockingBayRequest;
   LoadingQueue loadingQueue;
   PortMap portMap;
 
@@ -43,7 +41,12 @@ class _DockingBayCardState extends State<DockingBayCard> {
                     children: <Widget>[
                       EntryText(
                           data: "Docking bay: " +
-                              this.widget.dockingBayRequest.bay.bayName),
+                              this
+                                  .widget
+                                  .dockingBayRequest
+                                  .bay
+                                  .bayNum
+                                  .toString()),
                       EntryText(
                           data: "Est Time Remaining: " +
                               this
