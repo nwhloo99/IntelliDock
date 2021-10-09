@@ -8,7 +8,7 @@ const kBackgroundColor = Color(0xFF212332);
 
 // FontSize
 const double kHeaderFont1 = 44;
-const double kHeaderFont2 = 32;
+const double kHeaderFont2 = 36;
 const double kTextFont = 24;
 
 // Padding
