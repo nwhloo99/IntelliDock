@@ -29,12 +29,6 @@ class HaulerBookingScreen extends StatelessWidget {
                 Text(dockingBayRequest.bay.bayNum.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 VideoStream(),
-                Text(
-                    "Est Time Remaining: " +
-                        dockingBayRequest.estimatedReadyTime.inMinutes
-                            .toString() +
-                        " mins",
-                    style: TextStyle(fontSize: kHeaderFont2)),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.all(10),

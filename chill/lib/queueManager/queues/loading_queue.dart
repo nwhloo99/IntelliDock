@@ -23,7 +23,6 @@ class LoadingQueue extends Queue {
       return false;
     }
     requestList.add(request);
-    requestList.sort((a, b) => a.compareEstimate(b));
     return true;
   }
 }
