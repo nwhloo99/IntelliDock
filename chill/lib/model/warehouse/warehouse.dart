@@ -1,20 +1,17 @@
 import 'package:chill/model/warehouse/docking_bay.dart';
 
 /**
- * WARNINGS:
- * 1. _calEstTimeRemaining Methods need testing for Duration Arithmetics
- * 2. expectedCargo super constructor
+ * Warehouse class containing loading and unloading bays
  */
-
 class Warehouse {
-  final List<DockingBay> LoadingBays;
-  final List<DockingBay> UnloadingBays;
+  final List<DockingBay> loadingBays;
+  final List<DockingBay> unloadingBays;
   final String warehouseName;
 
   /**
    * Constructor for Warehouse
    */
-  Warehouse._(this.warehouseName, this.LoadingBays, this.UnloadingBays);
+  Warehouse._(this.warehouseName, this.loadingBays, this.unloadingBays);
 
   /**
    * Factory Constructor method for Warehouse, taking the number of bays to be
@@ -25,8 +22,8 @@ class Warehouse {
     List<DockingBay> tempListLoading = [];
     List<DockingBay> tempListUnloading = [];
     for (int i = 0; i < numOfBays; i++) {
-      tempListLoading.add(new DockingBay(warehouseName + (i + 1).toString()));
-      tempListUnloading.add(new DockingBay(warehouseName + (i + 1).toString()));
+      tempListLoading.add(new DockingBay(i + 1));
+      tempListUnloading.add(new DockingBay(i + 1));
     }
     return new Warehouse._(warehouseName, tempListLoading, tempListUnloading);
   }

@@ -1,6 +1,5 @@
-import 'package:chill/model/port_map.dart';
-import 'package:chill/queueManager/loading_queue.dart';
-import 'package:chill/queueManager/requests/loading_request.dart';
+import 'package:chill/model/model.dart';
+import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
@@ -8,12 +7,11 @@ import 'package:flutter/material.dart';
 
 class HaulerBookingScreen extends StatelessWidget {
   final HaulerUser haulerUser;
-  final LoadingQueue loadingQueue;
-  final LoadingRequest dockingBayRequest;
-  final PortMap portMap;
+  final Model SimulatedModel;
+  final Request dockingBayRequest;
 
   const HaulerBookingScreen(
-      this.haulerUser, this.loadingQueue, this.dockingBayRequest, this.portMap,
+      this.haulerUser, this.SimulatedModel, this.dockingBayRequest,
       {Key? key})
       : super(key: key);
 
@@ -28,7 +26,7 @@ class HaulerBookingScreen extends StatelessWidget {
                 Container(
                     child: Text("Confirm booking",
                         style: TextStyle(fontSize: kHeaderFont1))),
-                Text(dockingBayRequest.bay.bayName,
+                Text(dockingBayRequest.bay.bayNum.toString(),
                     style: TextStyle(fontSize: kHeaderFont2)),
                 VideoStream(),
                 Text(
@@ -45,13 +43,13 @@ class HaulerBookingScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(36)))),
                   child: Text("Book", style: TextStyle(fontSize: kTextFont)),
                   onPressed: () {
-                    loadingQueue.acceptLoadingRequest(
-                        dockingBayRequest, haulerUser);
+                    SimulatedModel.loadingQueue
+                        .acceptLoadingRequest(dockingBayRequest, haulerUser);
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => HaulerDashboardScreen(
-                                haulerUser, loadingQueue, portMap)));
+                                haulerUser, SimulatedModel)));
                   },
                 )
               ]),

@@ -23,7 +23,8 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
       nxtHauler = 'NIL';
       ETAofNxtHauler = 'NIL';
     } else {
-      nxtHauler = this.widget.dockingBay.incomingHauler.first.haulerName;
+      nxtHauler =
+          this.widget.dockingBay.incomingHauler.first.haulerNum.toString();
       ETAofNxtHauler = this
           .widget
           .dockingBay
@@ -37,7 +38,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
     String currentHauler = '';
     String timeLft = '';
     if (this.widget.dockingBay.isOccupied) {
-      currentHauler = this.widget.dockingBay.currentHauler.haulerName;
+      currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
       timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
     } else {
       currentHauler = 'NIL';
@@ -51,7 +52,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Column(children: <Widget>[
-          ListHeader(header: this.widget.dockingBay.bayName),
+          ListHeader(header: this.widget.dockingBay.bayNum.toString()),
           EntryText(
               data: "Status: " +
                   (this.widget.dockingBay.isOccupied ? "In use" : "Free")),

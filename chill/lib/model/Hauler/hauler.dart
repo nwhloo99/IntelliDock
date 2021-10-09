@@ -1,22 +1,14 @@
 import 'package:chill/constants.dart';
 
 class Hauler {
-  String haulerName;
+  num haulerNum;
   hauler_state state = hauler_state.Waiting;
 
   // Time related Variables
-  late Duration EstimatedCargoTime;
   late Duration EstimatedTravelTime;
   DateTime startTime = DateTime.now();
 
-  // Weight related Variables
-  num currentWeight = 0;
-  num expectedCargo;
-
-  Hauler(this.haulerName, this.expectedCargo, this.currentWeight) {
-    this.EstimatedCargoTime =
-        Duration(minutes: (expectedCargo ~/ AVG_Loading_Time));
-  }
+  Hauler(this.haulerNum);
 
   // State Methods
   void setState_Loading() {
@@ -39,30 +31,6 @@ class Hauler {
 
   void setState_Waiting() {
     this.state = hauler_state.Waiting;
-  }
-
-  // Weight Methods
-
-  /**
-   * Calculates and returns expectedWeight of cargo in hauler
-   */
-  num getExpectedWeight() {
-    if (state == hauler_state.Loading ||
-        state == hauler_state.TravellingToLoad) {
-      return currentWeight + expectedCargo;
-    } else if (state == hauler_state.Unloading ||
-        state == hauler_state.TravellingToUnload) {
-      return currentWeight - expectedCargo;
-    } else {
-      return expectedCargo;
-    }
-  }
-
-  /**
-   * Returns current weight of cargo in Hauler
-   */
-  num getCurrentWeight() {
-    return currentWeight;
   }
 
   // Time Methods

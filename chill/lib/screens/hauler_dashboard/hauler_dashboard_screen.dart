@@ -1,5 +1,5 @@
-import 'package:chill/model/port_map.dart';
-import 'package:chill/queueManager/loading_queue.dart';
+import 'package:chill/model/model.dart';
+import 'package:chill/queueManager/queues/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/current_booking.dart';
@@ -9,12 +9,9 @@ import 'package:flutter/material.dart';
 
 class HaulerDashboardScreen extends StatefulWidget {
   final HaulerUser haulerUser;
-  final LoadingQueue loadingQueue;
-  final PortMap simulationMap;
+  final Model SimulatedModel;
 
-  const HaulerDashboardScreen(
-      this.haulerUser, this.loadingQueue, this.simulationMap,
-      {Key? key})
+  const HaulerDashboardScreen(this.haulerUser, this.SimulatedModel, {Key? key})
       : super(key: key);
 
   @override
@@ -39,11 +36,11 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                       this.widget.haulerUser, this.widget.simulationMap),
                   Expanded(
                       child: Row(children: [
-                    DockingBayList(this.widget.loadingQueue,
-                        this.widget.haulerUser, this.widget.simulationMap,
+                    DockingBayList(
+                        this.widget.haulerUser, this.widget.SimulatedModel,
                         header: "Loading bay"),
-                    DockingBayList(new LoadingQueue(), this.widget.haulerUser,
-                        this.widget.simulationMap,
+                    DockingBayList(
+                        this.widget.haulerUser, this.widget.SimulatedModel,
                         header: "Unloading bay")
                   ]))
                 ]))));
