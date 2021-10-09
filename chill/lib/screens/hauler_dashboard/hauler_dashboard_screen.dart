@@ -54,10 +54,11 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                   CurrentBooking(this.widget.haulerUser),
                   Expanded(
                       child: Row(children: [
-                    DockingBayList(
-                        this.widget.loadingQueue, this.widget.haulerUser,
+                    DockingBayList(this.widget.loadingQueue,
+                        this.widget.haulerUser, this.widget.simulationMap,
                         header: "Loading bay"),
                     DockingBayList(new LoadingQueue(), this.widget.haulerUser,
+                        this.widget.simulationMap,
                         header: "Unloading bay")
                   ]))
                 ]))));

@@ -1,3 +1,4 @@
+import 'package:chill/model/port_map.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/loading_queue.dart';
 import 'package:chill/queueManager/requests/loading_request.dart';
@@ -12,8 +13,10 @@ class DockingBayCard extends StatefulWidget {
   HaulerUser haulerUser;
   LoadingRequest dockingBayRequest;
   LoadingQueue loadingQueue;
+  PortMap portMap;
 
-  DockingBayCard(this.dockingBayRequest, this.loadingQueue, this.haulerUser,
+  DockingBayCard(
+      this.dockingBayRequest, this.loadingQueue, this.haulerUser, this.portMap,
       {Key? key})
       : super(key: key);
 
@@ -62,7 +65,8 @@ class _DockingBayCardState extends State<DockingBayCard> {
                                 builder: (context) => HaulerBookingScreen(
                                     this.widget.haulerUser,
                                     this.widget.loadingQueue,
-                                    this.widget.dockingBayRequest)));
+                                    this.widget.dockingBayRequest,
+                                    this.widget.portMap)));
                       },
                       icon: Icon(Icons.arrow_right))
                 ])));

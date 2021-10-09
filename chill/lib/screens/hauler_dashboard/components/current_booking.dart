@@ -1,3 +1,4 @@
+import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
@@ -69,19 +70,26 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
     return Container(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        EntryText(data: "Docking Bay"),
-        EntryText(
-            data: this.widget.haulerUser.currentBooking.first.bay.bayName),
-        EntryText(
-            data: this
-                .widget
-                .haulerUser
-                .currentBooking
-                .first
-                .estimatedReadyTime
-                .toString())
-      ],
+      children: this.widget.haulerUser.currentBooking.isEmpty
+          ? <Widget>[EntryText(data: "No Request")]
+          : <Widget>[
+              EntryText(data: "Docking Bay"),
+              EntryText(
+                  data:
+                      this.widget.haulerUser.currentBooking.first.bay.bayName),
+              EntryText(
+                data: "Est Time Remaining: " +
+                    this
+                        .widget
+                        .haulerUser
+                        .currentBooking
+                        .first
+                        .estimatedReadyTime
+                        .inMinutes
+                        .toString() +
+                    " mins",
+              )
+            ],
     ));
   }
 }

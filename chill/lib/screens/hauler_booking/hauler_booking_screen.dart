@@ -1,16 +1,19 @@
+import 'package:chill/model/port_map.dart';
 import 'package:chill/queueManager/loading_queue.dart';
 import 'package:chill/queueManager/requests/loading_request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class HaulerBookingScreen extends StatelessWidget {
   final HaulerUser haulerUser;
   final LoadingQueue loadingQueue;
   final LoadingRequest dockingBayRequest;
+  final PortMap portMap;
 
   const HaulerBookingScreen(
-      this.haulerUser, this.loadingQueue, this.dockingBayRequest,
+      this.haulerUser, this.loadingQueue, this.dockingBayRequest, this.portMap,
       {Key? key})
       : super(key: key);
 
@@ -43,7 +46,11 @@ class HaulerBookingScreen extends StatelessWidget {
                   onPressed: () {
                     loadingQueue.acceptLoadingRequest(
                         dockingBayRequest, haulerUser);
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HaulerDashboardScreen(
+                                haulerUser, loadingQueue, portMap)));
                   },
                 )
               ]),

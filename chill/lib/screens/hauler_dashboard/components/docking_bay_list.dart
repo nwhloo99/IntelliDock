@@ -1,3 +1,4 @@
+import 'package:chill/model/port_map.dart';
 import 'package:chill/queueManager/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
@@ -8,8 +9,9 @@ class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;
   LoadingQueue loadingBayList;
+  PortMap portMap;
 
-  DockingBayList(this.loadingBayList, this.haulerUser,
+  DockingBayList(this.loadingBayList, this.haulerUser, this.portMap,
       {Key? key, required this.header})
       : super(key: key);
 
@@ -17,7 +19,7 @@ class DockingBayList extends StatefulWidget {
   _DockingBayListState createState() => _DockingBayListState();
 }
 
-// TODO
+// TODO Need to refresh List
 class _DockingBayListState extends State<DockingBayList> {
   // Future<DockingBay> getData() async {
 
@@ -28,7 +30,10 @@ class _DockingBayListState extends State<DockingBayList> {
   Widget build(BuildContext context) {
     this.widget.loadingBayList.requestList.forEach((bayRequest) {
       DockingBayCard card = new DockingBayCard(
-          bayRequest, this.widget.loadingBayList, this.widget.haulerUser);
+          bayRequest,
+          this.widget.loadingBayList,
+          this.widget.haulerUser,
+          this.widget.portMap);
       cardList.add(card);
     });
 
