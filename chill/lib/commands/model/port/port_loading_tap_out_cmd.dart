@@ -2,12 +2,12 @@ import 'package:chill/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/port_map.dart';
 
-class PortTapOutCommand extends Command {
+class PortLoadingTapOutCommand extends Command {
   Hauler haulerNumber;
   PortMap map;
-  PortTapOutCommand(this.haulerNumber, this.map) {}
+  PortLoadingTapOutCommand(this.haulerNumber, this.map) {}
 
   void execute() {
-    this.map.port_out(haulerNumber);
+    this.map.port_out_loading(haulerNumber);
   }
 }

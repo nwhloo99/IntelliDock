@@ -1,5 +1,3 @@
-import 'package:chill/queueManager/user/loadingbay_user.dart';
-import 'package:chill/screens/warehouse_dashboard/warehouse_dashboard_screen.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
@@ -14,14 +12,6 @@ class DashboardButtons extends StatelessWidget {
           alignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             NavigationButton(label: "Map", onPressed: () {}),
-            NavigationButton(
-                label: "Warehouse",
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => WarehouseDashboardScreen()));
-                }),
             NavigationButton(label: "Help", onPressed: () {})
           ],
         ));

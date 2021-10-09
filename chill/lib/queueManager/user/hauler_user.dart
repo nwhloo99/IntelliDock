@@ -19,4 +19,8 @@ class HaulerUser {
     currentBooking.add(request);
     currentBooking.sort((a, b) => a.compareEstimate(b));
   }
+
+  String haulerName() {
+    return "Hauler " + self.haulerNum.toString();
+  }
 }

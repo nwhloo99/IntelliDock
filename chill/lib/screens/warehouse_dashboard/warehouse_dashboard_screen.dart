@@ -1,11 +1,13 @@
+import 'package:chill/queueManager/user/loadingbay_user.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid.dart';
-import 'package:chill/screens/widgets/entry_text.dart';
-import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
 
 class WarehouseDashboardScreen extends StatefulWidget {
-  const WarehouseDashboardScreen({Key? key}) : super(key: key);
+  final WarehouseUser warehouseUser;
+
+  const WarehouseDashboardScreen(this.warehouseUser, {Key? key})
+      : super(key: key);
 
   @override
   _WarehouseDashboardScreenState createState() =>
@@ -21,7 +23,7 @@ class _WarehouseDashboardScreenState extends State<WarehouseDashboardScreen> {
                 padding: EdgeInsets.all(kDefaultPadding),
                 child: Column(children: <Widget>[
                   Container(
-                      child: Text("Warehouse A",
+                      child: Text(this.widget.warehouseUser.warehouseName(),
                           style: TextStyle(
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),

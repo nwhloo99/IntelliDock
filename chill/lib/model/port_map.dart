@@ -96,13 +96,23 @@ class PortMap {
    * Handles port_tap_in input
    */
   void port_in(Hauler haulerNumber) {
+    haulerNumber.setState_Waiting();
     startingPort.haulerEnter(haulerNumber);
   }
 
   /**
-   * Handles port_tap_out input
+   * Handles port_loading_tap_out input
    */
-  void port_out(Hauler haulerNumber) {
+  void port_out_loading(Hauler haulerNumber) {
+    haulerNumber.setState_TravellingToLoad();
+    startingPort.haulerExit(haulerNumber);
+  }
+
+  /**
+   * Handles port_unloading_tap_out input
+   */
+  void port_out_unloading(Hauler haulerNumber) {
+    haulerNumber.setState_TravellingToUnload();
     startingPort.haulerExit(haulerNumber);
   }
 }
