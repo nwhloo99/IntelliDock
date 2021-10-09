@@ -2,18 +2,20 @@ import 'package:chill/screens/constants.dart';
 import 'package:flutter/material.dart';
 
 class ListHeader extends StatelessWidget {
+  const ListHeader({Key? key, required this.header}) : super(key: key);
+
+  final String header;
+
   @override
   Widget build(BuildContext context) {
     return Align(
-        alignment: Alignment.topLeft,
+        alignment: Alignment.center,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Text(
-            "Available Docking Bays",
-            style: TextStyle(
-                color: Color(0xFF050505),
-                fontSize: kHeaderFont,
-                fontWeight: FontWeight.w600),
+            this.header,
+            style:
+                TextStyle(fontSize: kHeaderFont2, fontWeight: FontWeight.w600),
           ),
         ));
   }

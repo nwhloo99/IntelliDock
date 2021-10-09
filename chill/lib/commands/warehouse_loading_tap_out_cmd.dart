@@ -2,13 +2,13 @@ import 'package:chill/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/port_map.dart';
 
-class WarehouseTapInCommand extends Command {
+class WarehouseLoadingTapOutCommand extends Command {
   Hauler haulerNumber;
   PortMap map;
   num warehouseNumber;
   num bayNumber;
 
-  WarehouseTapInCommand(
+  WarehouseLoadingTapOutCommand(
       this.haulerNumber, this.warehouseNumber, this.bayNumber, this.map) {}
 
   void execute() {

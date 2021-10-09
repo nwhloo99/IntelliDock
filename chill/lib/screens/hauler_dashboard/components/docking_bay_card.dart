@@ -1,10 +1,10 @@
 import 'package:chill/screens/constants.dart';
+import 'package:chill/screens/hauler_booking/hauler_booking_screen.dart';
 import 'package:chill/screens/hauler_dashboard/components/entry_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
-class DockingBarCard extends StatefulWidget {
-  DockingBarCard(
+class DockingBayCard extends StatefulWidget {
+  DockingBayCard(
       {Key? key,
       required this.containerNumber,
       required this.dockingBay,
@@ -18,28 +18,45 @@ class DockingBarCard extends StatefulWidget {
   Duration estTime;
 
   @override
-  _DockingBarCardState createState() => _DockingBarCardState();
+  _DockingBayCardState createState() => _DockingBayCardState();
 }
 
-class _DockingBarCardState extends State<DockingBarCard> {
+class _DockingBayCardState extends State<DockingBayCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.symmetric(vertical: 5),
-        margin: EdgeInsets.symmetric(vertical: 10),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(88)),
-            color: kSecondaryColor),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            EntryText(data: "Container: " + this.widget.containerNumber),
-            EntryText(data: "Docking bay: " + this.widget.dockingBay),
-            EntryText(
-                data: "Est Time Remaining: " +
-                    this.widget.estTime.inMinutes.toString() +
-                    " mins")
-          ],
-        ));
+    return ClipRRect(
+        child: Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: kPrimaryColor),
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: EdgeInsets.all(20),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      EntryText(data: "Docking bay: " + this.widget.dockingBay),
+                      EntryText(
+                          data: "Est Time Remaining: " +
+                              this.widget.estTime.inMinutes.toString() +
+                              " mins")
+                    ],
+                  ),
+                  IconButton(
+                      iconSize: 60,
+                      color: kPrimaryColor,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HaulerBookingScreen(
+                                    dockingBay: this.widget.dockingBay,
+                                    estTime: this.widget.estTime)));
+                      },
+                      icon: Icon(Icons.arrow_right))
+                ])));
   }
 }

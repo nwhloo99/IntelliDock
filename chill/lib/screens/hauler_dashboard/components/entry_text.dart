@@ -10,7 +10,7 @@ class EntryText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
-      style: TextStyle(fontSize: kTextFont, fontWeight: FontWeight.w400),
+      style: TextStyle(fontSize: kTextFont, fontWeight: FontWeight.w600),
     );
   }
 }
