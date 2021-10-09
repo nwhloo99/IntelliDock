@@ -12,6 +12,6 @@ class WarehouseTapInCommand extends Command {
       this.haulerNumber, this.warehouseNumber, this.bayNumber, this.map) {}
 
   void execute() {
-    this.map.warehouse_in(haulerNumber, warehouseNumber, bayNumber);
+    this.map.warehouse_loading_in(haulerNumber, warehouseNumber, bayNumber);
   }
 }

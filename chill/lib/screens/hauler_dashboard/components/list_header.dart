@@ -2,7 +2,9 @@ import 'package:chill/screens/constants.dart';
 import 'package:flutter/material.dart';
 
 class ListHeader extends StatelessWidget {
-  const ListHeader({Key? key}) : super(key: key);
+  const ListHeader({Key? key, required this.header}) : super(key: key);
+
+  final String header;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,9 @@ class ListHeader extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Text(
-            "Available Docking Bays",
+            this.header,
             style: TextStyle(
-                color: Color(0xFF050505),
+                color: kHeaderColor,
                 fontSize: kHeaderFont2,
                 fontWeight: FontWeight.w600),
           ),

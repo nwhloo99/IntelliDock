@@ -1,33 +1,24 @@
-import 'package:chill/model/docking_bay.dart';
+import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart';
 import 'package:chill/screens/hauler_dashboard/components/list_header.dart';
 import 'package:flutter/material.dart';
 
-class DockingBayTracker extends StatefulWidget {
-  DockingBayTracker({Key? key, required this.header}) : super(key: key);
+class DockingBayList extends StatefulWidget {
+  DockingBayList({Key? key, required this.header}) : super(key: key);
 
   // TODO
   List<DockingBay> dockingBays = [];
   String header;
 
   @override
-  _DockingBayTrackerState createState() => _DockingBayTrackerState();
+  _DockingBayListState createState() => _DockingBayListState();
 }
 
 // TODO
-class _DockingBayTrackerState extends State<DockingBayTracker> {
+class _DockingBayListState extends State<DockingBayList> {
   // Future<DockingBay> getData() async {
 
   // }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class DockingBayList extends StatelessWidget {
-  const DockingBayList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +26,7 @@ class DockingBayList extends StatelessWidget {
         child: Expanded(
             child: Column(
       children: <Widget>[
-        ListHeader(),
+        ListHeader(header: this.widget.header),
         Expanded(
             child: Container(
                 child: ListView(

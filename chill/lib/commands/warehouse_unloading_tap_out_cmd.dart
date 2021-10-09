@@ -12,6 +12,6 @@ class WarehouseTapOutCommand extends Command {
       this.haulerNumber, this.warehouseNumber, this.bayNumber, this.map) {}
 
   void execute() {
-    this.map.warehouse_out(haulerNumber, warehouseNumber, bayNumber);
+    this.map.warehouse_loading_out(haulerNumber, warehouseNumber, bayNumber);
   }
 }
