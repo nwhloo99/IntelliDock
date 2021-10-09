@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 
 class HaulerDashboardScreen extends StatefulWidget {
   final HaulerUser haulerUser;
-  final Model SimulatedModel;
+  final Model simulatedModel;
 
-  const HaulerDashboardScreen(this.haulerUser, this.SimulatedModel, {Key? key})
+  const HaulerDashboardScreen(this.haulerUser, this.simulatedModel, {Key? key})
       : super(key: key);
 
   @override
@@ -33,14 +33,14 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                               fontWeight: FontWeight.bold))),
                   DashboardButtons(),
                   CurrentBooking(
-                      this.widget.haulerUser, this.widget.simulationMap),
+                      this.widget.haulerUser, this.widget.simulatedModel),
                   Expanded(
                       child: Row(children: [
                     DockingBayList(
-                        this.widget.haulerUser, this.widget.SimulatedModel,
+                        this.widget.haulerUser, this.widget.simulatedModel,
                         header: "Loading bay"),
                     DockingBayList(
-                        this.widget.haulerUser, this.widget.SimulatedModel,
+                        this.widget.haulerUser, this.widget.simulatedModel,
                         header: "Unloading bay")
                   ]))
                 ]))));

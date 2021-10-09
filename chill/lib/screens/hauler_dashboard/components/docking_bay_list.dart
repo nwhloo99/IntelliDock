@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;
-  Model SimulatedModel;
+  Model simulatedModel;
 
-  DockingBayList(this.haulerUser, this.SimulatedModel,
+  DockingBayList(this.haulerUser, this.simulatedModel,
       {Key? key, required this.header})
       : super(key: key);
 
@@ -28,9 +28,9 @@ class _DockingBayListState extends State<DockingBayList> {
   @override
   Widget build(BuildContext context) {
     List<DockingBayCard> cardList = [];
-    this.widget.SimulatedModel.loadingQueue.requestList.forEach((bayRequest) {
+    this.widget.simulatedModel.loadingQueue.requestList.forEach((bayRequest) {
       DockingBayCard card = new DockingBayCard(
-          bayRequest, this.widget.SimulatedModel, this.widget.haulerUser);
+          bayRequest, this.widget.haulerUser, this.widget.simulatedModel);
       cardList.add(card);
     });
 

@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 
 class HaulerBookingScreen extends StatelessWidget {
   final HaulerUser haulerUser;
-  final Model SimulatedModel;
+  final Model simulatedModel;
   final Request dockingBayRequest;
 
   const HaulerBookingScreen(
-      this.haulerUser, this.SimulatedModel, this.dockingBayRequest,
+      this.haulerUser, this.simulatedModel, this.dockingBayRequest,
       {Key? key})
       : super(key: key);
 
@@ -43,13 +43,13 @@ class HaulerBookingScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(36)))),
                   child: Text("Book", style: TextStyle(fontSize: kTextFont)),
                   onPressed: () {
-                    SimulatedModel.loadingQueue
+                    simulatedModel.loadingQueue
                         .acceptLoadingRequest(dockingBayRequest, haulerUser);
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => HaulerDashboardScreen(
-                                haulerUser, SimulatedModel)));
+                                haulerUser, simulatedModel)));
                   },
                 )
               ]),

@@ -1,3 +1,4 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/model/port_map.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
@@ -10,7 +11,7 @@ import 'package:flutter/material.dart';
 
 class CurrentBooking extends StatefulWidget {
   final HaulerUser haulerUser;
-  final PortMap simulationMap;
+  final Model simulationMap;
   const CurrentBooking(this.haulerUser, this.simulationMap, {Key? key})
       : super(key: key);
 
@@ -45,7 +46,7 @@ class _CurrentBookingState extends State<CurrentBooking> {
 
 class CurrentJobInfo extends StatelessWidget {
   final HaulerUser haulerUser;
-  final PortMap simulationMap;
+  final Model simulationMap;
   const CurrentJobInfo(this.haulerUser, this.simulationMap, {Key? key})
       : super(key: key);
 
