@@ -99,18 +99,6 @@ class _CurrentDockingBayInfoState extends State<CurrentDockingBayInfo> {
                       .bay
                       .bayNum
                       .toString()),
-              EntryText(
-                data: "Est Time Remaining: " +
-                    this
-                        .widget
-                        .haulerUser
-                        .currentBooking
-                        .first
-                        .estimatedReadyTime
-                        .inMinutes
-                        .toString() +
-                    " mins",
-              )
             ],
     ));
   }

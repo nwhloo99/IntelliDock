@@ -31,23 +31,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(2),
-        'A',
-        DateTime(2021, 10, 9, 21, 0)));
+        request_type.Loading, simulatedModel.map, new DockingBay(2), 'A'));
     simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(3),
-        'A',
-        DateTime(2021, 10, 9, 22, 0)));
+        request_type.Loading, simulatedModel.map, new DockingBay(3), 'A'));
     simulatedModel.loadingQueue.receiveLoadingRequest(new Request(
-        request_type.Loading,
-        simulatedModel.map,
-        new DockingBay(1),
-        'A',
-        DateTime(2021, 10, 9, 20, 0)));
+        request_type.Loading, simulatedModel.map, new DockingBay(1), 'A'));
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
