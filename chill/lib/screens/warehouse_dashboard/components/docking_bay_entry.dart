@@ -1,3 +1,4 @@
+import 'package:chill/constants.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
@@ -37,7 +38,7 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
 
     String currentHauler = '';
     String timeLft = '';
-    if (this.widget.dockingBay.isOccupied) {
+    if (this.widget.dockingBay.state == bay_state.Occupied) {
       currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
       timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
     } else {
@@ -55,7 +56,9 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
           ListHeader(header: this.widget.dockingBay.bayNum.toString()),
           EntryText(
               data: "Status: " +
-                  (this.widget.dockingBay.isOccupied ? "In use" : "Free")),
+                  (this.widget.dockingBay.state == bay_state.Occupied
+                      ? "In use"
+                      : "Free")),
           EntryText(data: "Next Hauler: " + nxtHauler),
           EntryText(data: "ETA: " + ETAofNxtHauler + " min"),
           EntryText(data: "Hauler at bay: " + currentHauler),

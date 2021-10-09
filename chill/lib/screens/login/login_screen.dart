@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => HaulerDashboardScreen(
-                              haulerUser, loadingQueue, simulationMap)));
+                              haulerUser, simulatedModel)));
                 }),
           ],
         ),
