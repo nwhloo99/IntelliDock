@@ -1,5 +1,4 @@
 import 'package:chill/model/model.dart';
-import 'package:chill/model/port_map.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:flutter/material.dart';
 

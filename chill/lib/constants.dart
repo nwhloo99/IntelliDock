@@ -1,3 +1,24 @@
+import 'package:flutter/material.dart';
+
+// SCREEN CONSTANTS
+// Colors to be used in the app
+const kPrimaryColor = Color(0xFF2697FF);
+const kSecondaryColor = Color(0xFF2A3141);
+const kTextColor = Color(0xFFE2E2FF);
+const kBackgroundColor = Color(0xFF212332);
+
+// FontSize
+const double kHeaderFont1 = 44;
+const double kHeaderFont2 = 36;
+const double kTextFont = 24;
+
+// Padding
+const double kDefaultPadding = 20.0;
+
+//
+const String fFamily = 'Montserrat';
+
+// BACKEND CONSTANTS
 // Average Queueing Delay in minutes
 const Queue_Delay = 60;
 
@@ -12,7 +33,7 @@ const num TTWarehouseD = 20; // 8 Dock Bays
 const num TTWarehouseE = 8; // 21 Dock bays
 
 // Time to Load / Unload Container in mins per container
-const num containerTransferTime = 20;
+const int containerTransferTime = 20;
 
 // Hauler states
 enum hauler_state {

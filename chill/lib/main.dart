@@ -1,12 +1,10 @@
 import 'package:chill/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
-import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/model/warehouse/warehouse.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
-import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

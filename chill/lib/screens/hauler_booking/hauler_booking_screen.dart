@@ -1,7 +1,7 @@
 import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
-import 'package:chill/screens/constants.dart';
+import 'package:chill/constants.dart';
 import 'package:chill/screens/hauler_dashboard/hauler_dashboard_screen.dart';
 import 'package:flutter/material.dart';
 

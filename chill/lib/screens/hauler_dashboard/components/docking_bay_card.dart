@@ -1,9 +1,7 @@
 import 'package:chill/model/model.dart';
-import 'package:chill/model/port_map.dart';
-import 'package:chill/queueManager/queues/loading_queue.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/requests/request.dart';
-import 'package:chill/screens/constants.dart';
+import 'package:chill/constants.dart';
 import 'package:chill/screens/hauler_booking/hauler_booking_screen.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:flutter/material.dart';

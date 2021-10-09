@@ -1,6 +1,5 @@
 import 'package:chill/constants.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
-import 'package:chill/screens/constants.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';

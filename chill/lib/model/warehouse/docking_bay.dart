@@ -40,7 +40,7 @@ class DockingBay {
     incomingHauler.remove(hauler);
     this.state = BayState.Occupied;
     this.startTime = DateTime.now();
-    this.estimatedDuration = Duration();
+    this.estimatedDuration = Duration(minutes: containerTransferTime);
     this.currentHauler = hauler;
     return true;
   }
