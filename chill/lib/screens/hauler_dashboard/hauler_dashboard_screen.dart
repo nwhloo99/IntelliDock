@@ -21,7 +21,6 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                   Container(
                       child: Text("Loading Dashboard",
                           style: TextStyle(
-                              color: kHeaderColor,
                               fontSize: kHeaderFont1,
                               fontWeight: FontWeight.bold))),
                   DashboardButtons(),

@@ -14,10 +14,8 @@ class ListHeader extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Text(
             this.header,
-            style: TextStyle(
-                color: kHeaderColor,
-                fontSize: kHeaderFont2,
-                fontWeight: FontWeight.w600),
+            style:
+                TextStyle(fontSize: kHeaderFont2, fontWeight: FontWeight.w600),
           ),
         ));
   }
