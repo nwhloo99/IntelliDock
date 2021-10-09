@@ -33,7 +33,9 @@ class HaulerBookingScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(36)))),
                   child: Text("Book", style: TextStyle(fontSize: kTextFont)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 )
               ]),
         ),
