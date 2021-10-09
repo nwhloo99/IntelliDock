@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: fFamily),
-      home: LoginPage(simulatedModel),
+      home: LoginPage(haulerUser, bayUser, simulatedModel),
     );
   }
 }

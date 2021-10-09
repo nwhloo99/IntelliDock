@@ -10,10 +10,11 @@ import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage(this.simulatedModel, {Key? key}) : super(key: key);
+  LoginPage(this.haulerUser, this.bayUser, this.simulatedModel, {Key? key})
+      : super(key: key);
 
-  final HaulerUser haulerUser = new HaulerUser(new Hauler(0));
-  final WarehouseUser bayUser = new WarehouseUser(new Warehouse('A', 17));
+  final HaulerUser haulerUser;
+  final WarehouseUser bayUser;
   final Model simulatedModel;
 
   @override
