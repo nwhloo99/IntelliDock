@@ -14,11 +14,14 @@ class CurrentBooking extends StatefulWidget {
 class _CurrentBookingState extends State<CurrentBooking> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
         decoration: BoxDecoration(
             border: Border.all(color: kPrimaryColor),
             borderRadius: BorderRadius.all(Radius.circular(30))),
-        margin: EdgeInsets.symmetric(horizontal: 200, vertical: 10),
+        margin:
+            EdgeInsets.symmetric(horizontal: size.width * 0.15, vertical: 10),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Column(children: <Widget>[
           ListHeader(header: "Current Job"),
