@@ -31,44 +31,32 @@ class _DockingBayCardState extends State<DockingBayCard> {
                 borderRadius: BorderRadius.all(Radius.circular(30))),
             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             padding: EdgeInsets.all(20),
-            child: InkWell(
-                splashColor: kPrimaryColor,
-                onLongPress: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HaulerBookingScreen(
-                              dockingBay: this.widget.dockingBay,
-                              estTime: this.widget.estTime)));
-                },
-                child: Container(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          EntryText(
-                              data: "Docking bay: " + this.widget.dockingBay),
-                          EntryText(
-                              data: "Est Time Remaining: " +
-                                  this.widget.estTime.inMinutes.toString() +
-                                  " mins")
-                        ],
-                      ),
-                      IconButton(
-                          iconSize: 60,
-                          color: kPrimaryColor,
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HaulerBookingScreen(
-                                        dockingBay: this.widget.dockingBay,
-                                        estTime: this.widget.estTime)));
-                          },
-                          icon: Icon(Icons.arrow_right))
-                    ])))));
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      EntryText(data: "Docking bay: " + this.widget.dockingBay),
+                      EntryText(
+                          data: "Est Time Remaining: " +
+                              this.widget.estTime.inMinutes.toString() +
+                              " mins")
+                    ],
+                  ),
+                  IconButton(
+                      iconSize: 60,
+                      color: kPrimaryColor,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HaulerBookingScreen(
+                                    dockingBay: this.widget.dockingBay,
+                                    estTime: this.widget.estTime)));
+                      },
+                      icon: Icon(Icons.arrow_right))
+                ])));
   }
 }
