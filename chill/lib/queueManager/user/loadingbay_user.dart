@@ -1,4 +1,5 @@
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/model/warehouse/warehouse.dart';
 
 /**
  * LoadingBayUser class to stimualate a user of the app that is a loading bay, 
@@ -6,6 +7,7 @@ import 'package:chill/model/warehouse/docking_bay.dart';
  */
 class LoadingBayUser {
   DockingBay self;
+  Warehouse parentWarehouse;
 
-  LoadingBayUser(this.self) {}
+  LoadingBayUser(this.self, this.parentWarehouse) {}
 }

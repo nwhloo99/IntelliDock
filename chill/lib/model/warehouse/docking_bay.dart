@@ -12,6 +12,7 @@ class DockingBay {
   num initialHaulerWeight = 0;
   num finalHaulerWeight = 0;
   late Hauler currentHauler;
+  List<Hauler> incomingHauler = [];
 
   /**
    * Arbitrary Constructor for docking_bay
@@ -39,12 +40,21 @@ class DockingBay {
    * unloading or loading the cargo
    */
   bool haulerEnter(Hauler hauler) {
+    incomingHauler.remove(hauler);
     this.isOccupied = true;
     this.startTime = DateTime.now();
     this.estimatedDuration = hauler.EstimatedCargoTime;
     this.initialHaulerWeight = hauler.getCurrentWeight();
     this.finalHaulerWeight = hauler.getExpectedWeight();
     this.currentHauler = hauler;
+    return true;
+  }
+
+  /**
+   * hauler projected to arrive at warehouse with the estimated time
+   */
+  bool haulerOTW(Hauler hauler) {
+    incomingHauler.add(hauler);
     return true;
   }
 

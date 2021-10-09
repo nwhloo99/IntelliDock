@@ -27,10 +27,33 @@ class PortMap {
   //--------Handling Command requests-------------------------------------------
 
   /**
+   * Handles hauler_travelling_to_load input
+   */
+  void hauler_travelling_to_load(
+      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_TravellingToLoad();
+    warehouses[(warehouseNumber - 1).toInt()]
+        .LoadingBays[(bayNumber - 1).toInt()]
+        .haulerOTW(haulerNumber);
+  }
+
+  /**
+   * Handles hauler_travelling_to_unload input
+   */
+  void hauler_travelling_to_unload(
+      Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_TravellingToUnload();
+    warehouses[(warehouseNumber - 1).toInt()]
+        .LoadingBays[(bayNumber - 1).toInt()]
+        .haulerOTW(haulerNumber);
+  }
+
+  /**
    * Handles warehouse_loading_tap_in input
    */
   void warehouse_loading_in(
       Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_Loading();
     warehouses[(warehouseNumber - 1).toInt()]
         .LoadingBays[(bayNumber - 1).toInt()]
         .haulerEnter(haulerNumber);
@@ -41,6 +64,7 @@ class PortMap {
    */
   void warehouse_loading_out(
       Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_Waiting();
     warehouses[(warehouseNumber - 1).toInt()]
         .LoadingBays[(bayNumber - 1).toInt()]
         .haulerLeave();
@@ -51,6 +75,7 @@ class PortMap {
    */
   void warehouse_unloading_in(
       Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_Unloading();
     warehouses[(warehouseNumber - 1).toInt()]
         .UnloadingBays[(bayNumber - 1).toInt()]
         .haulerEnter(haulerNumber);
@@ -61,6 +86,7 @@ class PortMap {
    */
   void warehouse_unloading_out(
       Hauler haulerNumber, num warehouseNumber, num bayNumber) {
+    haulerNumber.setState_Waiting();
     warehouses[(warehouseNumber - 1).toInt()]
         .UnloadingBays[(bayNumber - 1).toInt()]
         .haulerLeave();
