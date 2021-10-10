@@ -15,7 +15,7 @@ When users first enter the application, they will be greeted with a login page p
 ### Warehouse Users
 If `Warehouse` is selected, the Warehouse User page will be displayed
 
-![Warehouse User](/assets/readme_img/WarehousePage.png)
+![Warehouse User](/assets/images/WarehousePage.png)
 
 ### Haulier Users
 
