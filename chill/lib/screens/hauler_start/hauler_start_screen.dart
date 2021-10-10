@@ -38,16 +38,29 @@ class _HaulerStartScreenState extends State<HaulerStartScreen> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: (size.width / 1200) * 44))))),
-        NavigationButton(
-            label: "Finished",
-            onPressed: () {
-              this.widget.haulerUser.currentBooking.removeAt(0);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => HaulerDashboardScreen(
-                          this.widget.haulerUser, this.widget.map)));
-            })
+        Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              NavigationButton(
+                  label: "Cancel",
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HaulerDashboardScreen(
+                                this.widget.haulerUser, this.widget.map)));
+                  }),
+              NavigationButton(
+                  label: "Finished",
+                  onPressed: () {
+                    this.widget.haulerUser.currentBooking.removeAt(0);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HaulerDashboardScreen(
+                                this.widget.haulerUser, this.widget.map)));
+                  }),
+            ]),
       ],
     )))));
   }

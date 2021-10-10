@@ -50,7 +50,7 @@ class _DockingBayCardState extends State<DockingBayCard> {
                       iconSize: 60,
                       color: kPrimaryColor,
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => HaulerBookingScreen(
