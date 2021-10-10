@@ -33,3 +33,18 @@ Model generateModeB() {
   templateModelB.map.warehouse_unloading_in(new Hauler(3), 'A', 3);
   return templateModelB;
 }
+
+/** MODEL C
+ * Warehouse A: 1 Docking
+ * TODO; Flow to test: 
+ * A,1 -> to send unloading request
+ * Hauler1 -> to receive request and indicate on the way
+ * A,1 -> see that Hauler1 is otw
+ * Hauler1 -> indicate he has reached
+ * A,1 -> see that bay is occupied
+ * A,1 -> indicate unloading is complete
+ */
+Model generateModelC() {
+  Model templateModelC = new Model([1]);
+  return templateModelC;
+}
