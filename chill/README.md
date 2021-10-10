@@ -54,3 +54,6 @@ The Haulier will then hit `Start` under current to begin performing this request
 When the job is complete, the Haulier can just hit `Finish` to indicate that the job is complete and move on to the next request.
 
 ## Next Steps
+### Put Model on to Webserver
+### Count the jobs each Haulier has taken
+### Have a third login option for Managers to view overvieew

@@ -20,7 +20,7 @@ class _DockingBayGridState extends State<DockingBayGrid> {
   Widget build(BuildContext context) {
     List<DockingBayEntry> cardList = [];
 
-    this.widget.warehouseUser.parentWarehouse.loadingBays.forEach((bay) {
+    this.widget.warehouseUser.parentWarehouse.dockingBays.forEach((bay) {
       DockingBayEntry card = new DockingBayEntry(
         dockingBay: bay,
         simulatedModel: this.widget.simulatedModel,

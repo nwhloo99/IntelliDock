@@ -38,8 +38,8 @@ Model generateModelA() {
 Model generateModelB() {
   Model templateModelB = new Model([5], 3);
   templateModelB.hauler_travelling_to_destination(0, 'A', 1);
-  templateModelB.warehouse_loading_in(1, 'A', 2);
-  templateModelB.warehouse_unloading_in(2, 'A', 3);
+  templateModelB.warehouse_in(1, 'A', 2);
+  templateModelB.warehouse_in(2, 'A', 3);
   return templateModelB;
 }
 
@@ -60,8 +60,8 @@ Model generateModelC() {
   templateModelC.receiveRequest(req);
   templateModelC.acceptRequest(req, user);
   templateModelC.hauler_travelling_to_destination(0, 'A', 1);
-  templateModelC.warehouse_unloading_in(0, 'A', 1);
-  templateModelC.warehouse_unloading_out(0, 'A', 1);
+  templateModelC.warehouse_in(0, 'A', 1);
+  templateModelC.warehouse_out(0, 'A', 1);
   return templateModelC;
 }
 

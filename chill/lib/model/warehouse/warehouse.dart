@@ -5,14 +5,13 @@ import 'package:chill/utils/constants.dart';
  * Warehouse class containing loading and unloading bays
  */
 class Warehouse {
-  final List<DockingBay> loadingBays;
-  final List<DockingBay> unloadingBays;
+  final List<DockingBay> dockingBays;
   final String warehouseName;
 
   /**
    * Constructor for Warehouse
    */
-  Warehouse._(this.warehouseName, this.loadingBays, this.unloadingBays);
+  Warehouse._(this.warehouseName, this.dockingBays);
 
   /**
    * Factory Constructor method for Warehouse, taking the number of bays to be
@@ -20,14 +19,10 @@ class Warehouse {
    */
   factory Warehouse(String warehouseName, num numOfBays) {
     // Create {@code numOfBays} number of docking bays to initialize bays
-    List<DockingBay> tempListLoading = [];
-    List<DockingBay> tempListUnloading = [];
+    List<DockingBay> tempList = [];
     for (int i = 0; i < numOfBays; i++) {
-      tempListLoading
-          .add(new DockingBay(JobType.Loading, i + 1, warehouseName));
-      tempListUnloading
-          .add(new DockingBay(JobType.Unloading, i + 1, warehouseName));
+      tempList.add(new DockingBay(JobType.Loading, i + 1, warehouseName));
     }
-    return new Warehouse._(warehouseName, tempListLoading, tempListUnloading);
+    return new Warehouse._(warehouseName, tempList);
   }
 }

@@ -31,7 +31,7 @@ class Model {
 
   // MAP related
   /**
-   * Handles hauler_travelling_to_load input
+   * Handles hauler_travelling_to_destination_cmd input
    */
   void hauler_travelling_to_destination(
       num haulerNum, String warehouseName, num bayNumber) {
@@ -43,7 +43,7 @@ class Model {
         .getTTWarehouse(warehouseName);
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .loadingBays[(bayNumber - 1).toInt()]
+        .dockingBays[(bayNumber - 1).toInt()]
         .haulerOTW(
             haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
@@ -51,14 +51,13 @@ class Model {
   /**
    * Handles warehouse_loading_tap_in input
    */
-  void warehouse_loading_in(
-      num haulerNum, String warehouseName, num bayNumber) {
+  void warehouse_in(num haulerNum, String warehouseName, num bayNumber) {
     haulers
         .firstWhere((element) => element.haulerNum == haulerNum)
         .setState_Loading();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .loadingBays[(bayNumber - 1).toInt()]
+        .dockingBays[(bayNumber - 1).toInt()]
         .haulerEnter(
             haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
@@ -66,48 +65,18 @@ class Model {
   /**
    * Handles warehouse_loading_tap_out input
    */
-  void warehouse_loading_out(
-      num haulerNum, String warehouseName, num bayNumber) {
+  void warehouse_out(num haulerNum, String warehouseName, num bayNumber) {
     haulers
         .firstWhere((element) => element.haulerNum == haulerNum)
         .setState_Waiting();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .loadingBays[(bayNumber - 1).toInt()]
+        .dockingBays[(bayNumber - 1).toInt()]
         .haulerLeave();
   }
 
   /**
-   * Handles warehouse_unloading_tap_in input
-   */
-  void warehouse_unloading_in(
-      num haulerNum, String warehouseName, num bayNumber) {
-    haulers
-        .firstWhere((element) => element.haulerNum == haulerNum)
-        .setState_Unloading();
-    map.warehouses
-        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .unloadingBays[(bayNumber - 1).toInt()]
-        .haulerEnter(
-            haulers.firstWhere((element) => element.haulerNum == haulerNum));
-  }
-
-  /**
-   * Handles warehouse_unloading_tap_out input
-   */
-  void warehouse_unloading_out(
-      num haulerNum, String warehouseName, num bayNumber) {
-    haulers
-        .firstWhere((element) => element.haulerNum == haulerNum)
-        .setState_Waiting();
-    map.warehouses
-        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .unloadingBays[(bayNumber - 1).toInt()]
-        .haulerLeave();
-  }
-
-  /**
-   * Handles port_tap_in input
+   * Handles port_in_cmd input
    */
   void port_in(num haulerNum) {
     haulers
@@ -118,7 +87,7 @@ class Model {
   }
 
   /**
-   * Handles port_loading_tap_out input
+   * Handles port_loading_out_cmd input
    */
   void port_loading_out(num haulerNum) {
     haulers
@@ -129,7 +98,7 @@ class Model {
   }
 
   /**
-   * Handles port_unloading_tap_out input
+   * Handles port_unloading_out_cmd input
    */
   void port_out_unloading(num haulerNum) {
     haulers

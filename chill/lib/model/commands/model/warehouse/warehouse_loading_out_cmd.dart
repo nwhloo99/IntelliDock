@@ -1,18 +1,18 @@
 import 'package:chill/model/commands/command.dart';
 import 'package:chill/model/model.dart';
 
-class WarehouseLoadingOutCommand extends Command {
+class WarehouseOutCommand extends Command {
   num haulerNum;
   Model model;
   String warehouseName;
   num bayNumber;
 
-  WarehouseLoadingOutCommand(
+  WarehouseOutCommand(
       this.haulerNum, this.warehouseName, this.bayNumber, this.model) {
     execute();
   }
 
   void execute() {
-    this.model.warehouse_loading_out(haulerNum, warehouseName, bayNumber);
+    this.model.warehouse_out(haulerNum, warehouseName, bayNumber);
   }
 }
