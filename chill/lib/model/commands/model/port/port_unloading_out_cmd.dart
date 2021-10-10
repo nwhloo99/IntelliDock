@@ -1,13 +1,12 @@
 import 'package:chill/model/commands/command.dart';
-import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
 
 class PortUnloadingOutCommand extends Command {
-  Hauler hauler;
+  num haulerNum;
   Model model;
-  PortUnloadingOutCommand(this.hauler, this.model) {}
+  PortUnloadingOutCommand(this.haulerNum, this.model) {}
 
   void execute() {
-    this.model.port_out_unloading(hauler);
+    this.model.port_out_unloading(haulerNum);
   }
 }

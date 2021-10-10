@@ -11,56 +11,79 @@ class Model {
   Queue loadingQueue = new Queue();
   Queue unloadingQueue = new Queue();
 
-  Model(List<int> numOfWarehouses) {
+  Model(List<int> numOfWarehouses, int numOfHaulers) {
     map = new PortMap(numOfWarehouses);
+    for (int i = 0; i < numOfHaulers; i++) {
+      Hauler temp = new Hauler(i);
+      haulers.add(temp);
+    }
+  }
+
+  void addHaulers(int numToAdd) {
+    int length = haulers.length;
+    for (int i = 0; i < numToAdd; i++) {
+      Hauler temp = new Hauler(i + length);
+      haulers.add(temp);
+    }
   }
 
   //--------Handling Command requests-------------------------------------------
+
   // MAP related
   /**
    * Handles hauler_travelling_to_load input
    */
   void hauler_travelling_to_load(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_TravellingToLoad();
-    hauler.EstimatedTravelTime = Duration(minutes: 10);
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_TravellingToLoad();
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..EstimatedTravelTime = Duration(minutes: 10);
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
-        .haulerOTW(hauler);
+        .haulerOTW(
+            haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles hauler_travelling_to_unload input
    */
   void hauler_travelling_to_unload(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_TravellingToUnload();
-    hauler.EstimatedTravelTime = Duration(minutes: 10);
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_TravellingToUnload();
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..EstimatedTravelTime = Duration(minutes: 10);
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
-        .haulerOTW(hauler);
+        .haulerOTW(
+            haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles warehouse_loading_tap_in input
    */
   void warehouse_loading_in(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_Loading();
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_Loading();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
-        .haulerEnter(hauler);
+        .haulerEnter(
+            haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles warehouse_loading_tap_out input
    */
   void warehouse_loading_out(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_Waiting();
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_Waiting();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
@@ -71,20 +94,23 @@ class Model {
    * Handles warehouse_unloading_tap_in input
    */
   void warehouse_unloading_in(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_Unloading();
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_Unloading();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .unloadingBays[(bayNumber - 1).toInt()]
-        .haulerEnter(hauler);
+        .haulerEnter(
+            haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles warehouse_unloading_tap_out input
    */
   void warehouse_unloading_out(
-      Hauler hauler, String warehouseName, num bayNumber) {
-    hauler.setState_Waiting();
+      num haulerNum, String warehouseName, num bayNumber) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_Waiting();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .unloadingBays[(bayNumber - 1).toInt()]
@@ -94,25 +120,31 @@ class Model {
   /**
    * Handles port_tap_in input
    */
-  void port_in(Hauler haulerNumber) {
-    haulerNumber.setState_Waiting();
-    map.startingPort.haulerEnter(haulerNumber);
+  void port_in(num haulerNum) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_Waiting();
+    map.startingPort.haulerEnter(
+        haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles port_loading_tap_out input
    */
-  void port_loading_out(Hauler hauler) {
-    hauler.setState_TravellingToLoad();
-    map.startingPort.haulerExit(hauler);
+  void port_loading_out(num haulerNum) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_TravellingToLoad();
+    map.startingPort.haulerExit(
+        haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   /**
    * Handles port_unloading_tap_out input
    */
-  void port_out_unloading(Hauler hauler) {
-    hauler.setState_TravellingToUnload();
-    map.startingPort.haulerExit(hauler);
+  void port_out_unloading(num haulerNum) {
+    haulers.firstWhere((element) => element.haulerNum == haulerNum)
+      ..setState_TravellingToUnload();
+    map.startingPort.haulerExit(
+        haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
 
   // QUEUE Related
@@ -122,7 +154,7 @@ class Model {
    */
   void acceptLoadingRequest(Request request, HaulerUser haulerUser) {
     loadingQueue.requestList.remove(request);
-    request.pushToModel(haulerUser);
+    haulerUser.currentBooking.add(request);
   }
 
   /**
@@ -141,7 +173,7 @@ class Model {
    */
   void acceptUnloadingRequest(Request request, HaulerUser haulerUser) {
     unloadingQueue.requestList.remove(request);
-    request.pushToModel(haulerUser);
+    haulerUser.currentBooking.add(request);
   }
 
   /**

@@ -1,11 +1,16 @@
-import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
+
+/**
+ * TEST
+ * Queues -> loading unloading
+ * Model -> hauler adding
+ */
 
 /** MODEL NULL
  * Empty Model
  */
 Model generateModelNull() {
-  return new Model([]);
+  return new Model([], 0);
 }
 
 /** MODEL A
@@ -14,9 +19,9 @@ Model generateModelNull() {
  * Hauler 2 travelling to load at B,2
  */
 Model generateModelA() {
-  Model templateModelA = new Model([3, 2]);
-  templateModelA.hauler_travelling_to_unload(new Hauler(1), 'A', 1);
-  templateModelA.hauler_travelling_to_load(new Hauler(2), 'B', 2);
+  Model templateModelA = new Model([3, 2], 2);
+  templateModelA.hauler_travelling_to_unload(0, 'A', 1);
+  templateModelA.hauler_travelling_to_load(1, 'B', 2);
   return templateModelA;
 }
 
@@ -27,10 +32,10 @@ Model generateModelA() {
  * Hauler 3 occupying & unloading at A,3
  */
 Model generateModeB() {
-  Model templateModelB = new Model([5]);
-  templateModelB.hauler_travelling_to_load(new Hauler(1), 'A', 1);
-  templateModelB.warehouse_loading_in(new Hauler(2), 'A', 2);
-  templateModelB.warehouse_unloading_in(new Hauler(3), 'A', 3);
+  Model templateModelB = new Model([5], 3);
+  templateModelB.hauler_travelling_to_load(0, 'A', 1);
+  templateModelB.warehouse_loading_in(1, 'A', 2);
+  templateModelB.warehouse_unloading_in(2, 'A', 3);
   return templateModelB;
 }
 
@@ -45,7 +50,7 @@ Model generateModeB() {
  * A,1 -> indicate unloading is complete
  */
 Model generateModelC() {
-  Model templateModelC = new Model([1]);
+  Model templateModelC = new Model([1], 1);
   return templateModelC;
 }
 

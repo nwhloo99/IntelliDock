@@ -1,9 +1,8 @@
 import 'package:chill/model/commands/command.dart';
-import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
 
 class HaulerTravellingToUnload extends Command {
-  Hauler hauler;
+  num hauler;
   Model model;
   String warehouseName;
   num bayNumber;

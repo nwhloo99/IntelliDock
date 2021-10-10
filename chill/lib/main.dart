@@ -9,9 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /** TODO
- * map -> hauler_travelling: parse warehousename into template estTravelTime
+ * model -> hauler_travelling: parse warehousename into template estTravelTime
  * change commands to not reference hauler object but number
- * model should take in total number of haulers
+ * 
+ * font size based on pixels
  */
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +25,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // Example HaulerUser object
-  HaulerUser haulerUser = new HaulerUser(new Hauler(42069));
+  // Initialization of Users & Model
+  HaulerUser haulerUser = new HaulerUser(new Hauler(0));
   WarehouseUser bayUser = new WarehouseUser(generateModeB()
       .map
       .warehouses
