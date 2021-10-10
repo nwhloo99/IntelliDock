@@ -1,13 +1,13 @@
 import 'package:chill/model/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
-import 'package:chill/model/port_map.dart';
+import 'package:chill/model/model.dart';
 
 class PortInCommand extends Command {
   Hauler hauler;
-  PortMap map;
-  PortInCommand(this.hauler, this.map) {}
+  Model model;
+  PortInCommand(this.hauler, this.model) {}
 
   void execute() {
-    this.map.port_in(hauler);
+    this.model.port_in(hauler);
   }
 }

@@ -11,7 +11,7 @@ import 'package:flutter/services.dart';
 
 /** TODO
  * map -> hauler_travelling: parse warehousename into template estTravelTime
- * refactor commands to model instead to neaten code
+ * refactor commands to model instead to neaten code (Queue Commands)
  * change commands to not reference hauler object but number
  * model should take in total number of haulers
  */
@@ -37,12 +37,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    simulatedModel.loadingQueue
-        .receiveLoadingRequest(new Request(request_type.Loading, 2, 'A'));
-    simulatedModel.loadingQueue
-        .receiveLoadingRequest(new Request(request_type.Loading, 3, 'A'));
-    simulatedModel.loadingQueue
-        .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

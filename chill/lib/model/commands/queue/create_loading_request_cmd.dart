@@ -1,14 +1,14 @@
 import 'package:chill/model/commands/command.dart';
-import 'package:chill/queueManager/queues/loading_queue.dart';
+import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/requests/request.dart';
 
 class CreateLoadingRequest extends Command {
-  LoadingQueue targetQueue;
   Request request;
+  Model model;
 
-  CreateLoadingRequest(this.targetQueue, this.request) {}
+  CreateLoadingRequest(this.request, this.model) {}
 
   void execute() {
-    this.targetQueue.receiveLoadingRequest(request);
+    this.model.receiveLoadingRequest(request);
   }
 }

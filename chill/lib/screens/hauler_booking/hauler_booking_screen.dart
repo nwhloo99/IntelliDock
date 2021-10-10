@@ -35,8 +35,8 @@ class HaulerBookingScreen extends StatelessWidget {
                 NavigationButton(
                     label: "Accept",
                     onPressed: () {
-                      simulatedModel.loadingQueue
-                          .acceptLoadingRequest(dockingBayRequest, haulerUser);
+                      simulatedModel.acceptLoadingRequest(
+                          dockingBayRequest, haulerUser);
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

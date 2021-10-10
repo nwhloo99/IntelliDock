@@ -1,13 +1,13 @@
 import 'package:chill/model/commands/command.dart';
 import 'package:chill/model/hauler/hauler.dart';
-import 'package:chill/model/port_map.dart';
+import 'package:chill/model/model.dart';
 
 class PortLoadingOutCommand extends Command {
   Hauler hauler;
-  PortMap map;
-  PortLoadingOutCommand(this.hauler, this.map) {}
+  Model model;
+  PortLoadingOutCommand(this.hauler, this.model) {}
 
   void execute() {
-    this.map.port_loading_out(hauler);
+    this.model.port_loading_out(hauler);
   }
 }

@@ -15,8 +15,8 @@ Model generateModelNull() {
  */
 Model generateModelA() {
   Model templateModelA = new Model([3, 2]);
-  templateModelA.map.hauler_travelling_to_unload(new Hauler(1), 'A', 1);
-  templateModelA.map.hauler_travelling_to_load(new Hauler(2), 'B', 2);
+  templateModelA.hauler_travelling_to_unload(new Hauler(1), 'A', 1);
+  templateModelA.hauler_travelling_to_load(new Hauler(2), 'B', 2);
   return templateModelA;
 }
 
@@ -28,9 +28,9 @@ Model generateModelA() {
  */
 Model generateModeB() {
   Model templateModelB = new Model([5]);
-  templateModelB.map.hauler_travelling_to_load(new Hauler(1), 'A', 1);
-  templateModelB.map.warehouse_loading_in(new Hauler(2), 'A', 2);
-  templateModelB.map.warehouse_unloading_in(new Hauler(3), 'A', 3);
+  templateModelB.hauler_travelling_to_load(new Hauler(1), 'A', 1);
+  templateModelB.warehouse_loading_in(new Hauler(2), 'A', 2);
+  templateModelB.warehouse_unloading_in(new Hauler(3), 'A', 3);
   return templateModelB;
 }
 
@@ -48,3 +48,12 @@ Model generateModelC() {
   Model templateModelC = new Model([1]);
   return templateModelC;
 }
+
+/** MODEL D 
+ *  simulatedModel
+        .receiveLoadingRequest(new Request(request_type.Loading, 2, 'A'));
+    simulatedModel
+        .receiveLoadingRequest(new Request(request_type.Loading, 3, 'A'));
+    simulatedModel
+        .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
+ */
