@@ -1,5 +1,6 @@
 import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
@@ -108,10 +109,31 @@ class InfoListOccupied extends StatelessWidget {
           NavigationButton(
               label: "Request",
               onPressed: () {
-                simulatedModel.warehouse_loading_out(
-                    dockingBay.currentHauler.haulerNum,
-                    dockingBay.parentWarehouse,
-                    dockingBay.bayNum);
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          backgroundColor: kBackgroundColor,
+                          title: ListHeader(header: "Creating Request"),
+                          content: EntryText(
+                              data: "Requesting for haulier to " +
+                                  dockingBay.bayNum.toString()),
+                          actions: <Widget>[
+                            NavigationButton(
+                                onPressed: () =>
+                                    Navigator.pop(context, 'Cancel'),
+                                label: "Cancel"),
+                            NavigationButton(
+                                onPressed: () {
+                                  simulatedModel.receiveLoadingRequest(
+                                      new Request(
+                                          request_type.Loading,
+                                          dockingBay.parentWarehouse,
+                                          dockingBay.bayNum));
+                                  Navigator.pop(context, 'Confirm');
+                                },
+                                label: "Confirm"),
+                          ],
+                        ));
               })
         ]));
   }
