@@ -20,6 +20,7 @@ class HaulerDashboardScreen extends StatefulWidget {
 class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
             body: Container(
@@ -28,9 +29,8 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                   Container(
                       child: Text(this.widget.haulerUser.haulerName(),
                           style: TextStyle(
-                              fontSize: kHeaderFont1,
+                              fontSize: (size.width / 1200) * kHeaderFont1,
                               fontWeight: FontWeight.bold))),
-                  DashboardButtons(),
                   CurrentBooking(
                       this.widget.haulerUser, this.widget.simulatedModel),
                   Expanded(

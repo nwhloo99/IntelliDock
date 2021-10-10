@@ -17,6 +17,7 @@ class WarehouseDashboardScreen extends StatefulWidget {
 class _WarehouseDashboardScreenState extends State<WarehouseDashboardScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
             body: Container(
@@ -25,7 +26,7 @@ class _WarehouseDashboardScreenState extends State<WarehouseDashboardScreen> {
                   Container(
                       child: Text(this.widget.warehouseUser.warehouseName(),
                           style: TextStyle(
-                              fontSize: kHeaderFont1,
+                              fontSize: (size.width / 1200) * kHeaderFont1,
                               fontWeight: FontWeight.bold))),
                   DockingBayGrid(this.widget.warehouseUser),
                 ]))));

@@ -11,9 +11,11 @@ class NavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return OutlinedButton(
       onPressed: this.onPressed,
-      child: Text(this.label, style: TextStyle(fontSize: kTextFont)),
+      child: Text(this.label,
+          style: TextStyle(fontSize: (size.width / 1200) * kTextFont)),
       style: OutlinedButton.styleFrom(
           primary: kTextColor,
           backgroundColor: kSecondaryColor,

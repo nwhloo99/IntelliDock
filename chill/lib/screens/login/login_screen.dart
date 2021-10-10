@@ -17,6 +17,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
             body: Center(
@@ -28,7 +29,8 @@ class LoginPage extends StatelessWidget {
             Text(
               "WELCOME TO MOBILE LEGENDS",
               style: TextStyle(
-                  fontSize: kHeaderFont1, fontWeight: FontWeight.bold),
+                  fontSize: (size.width / 1024) * kHeaderFont1,
+                  fontWeight: FontWeight.bold),
             ),
             NavigationButton(
                 label: "Warehouse",

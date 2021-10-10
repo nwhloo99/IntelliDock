@@ -8,9 +8,12 @@ class EntryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Text(
       data,
-      style: TextStyle(fontSize: kTextFont, fontWeight: FontWeight.w600),
+      style: TextStyle(
+          fontSize: (size.width / 1200) * kTextFont,
+          fontWeight: FontWeight.w600),
     );
   }
 }

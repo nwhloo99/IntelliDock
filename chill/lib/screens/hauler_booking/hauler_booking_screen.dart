@@ -18,6 +18,7 @@ class HaulerBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -26,12 +27,15 @@ class HaulerBookingScreen extends StatelessWidget {
               children: <Widget>[
                 Container(
                     child: Text("Confirm Job",
-                        style: TextStyle(fontSize: kHeaderFont1))),
+                        style: TextStyle(
+                            fontSize: (size.width / 1200) * kHeaderFont1))),
                 Text("Warehouse: " + dockingBayRequest.warehouseName.toString(),
-                    style: TextStyle(fontSize: kHeaderFont2)),
+                    style: TextStyle(
+                        fontSize: (size.width / 1200) * kHeaderFont2)),
                 VideoStream(),
                 Text(dockingBayRequest.bayNum.toString(),
-                    style: TextStyle(fontSize: kHeaderFont2)),
+                    style: TextStyle(
+                        fontSize: (size.width / 1200) * kHeaderFont2)),
                 NavigationButton(
                     label: "Accept",
                     onPressed: () {
