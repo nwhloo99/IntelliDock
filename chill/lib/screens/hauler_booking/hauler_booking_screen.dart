@@ -36,17 +36,31 @@ class HaulerBookingScreen extends StatelessWidget {
                 Text(dockingBayRequest.bayNum.toString(),
                     style: TextStyle(
                         fontSize: (size.width / 1200) * kHeaderFont2)),
-                NavigationButton(
-                    label: "Accept",
-                    onPressed: () {
-                      simulatedModel.acceptRequest(
-                          dockingBayRequest, haulerUser);
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HaulerDashboardScreen(
-                                  haulerUser, simulatedModel)));
-                    }),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    NavigationButton(
+                        label: "Cancel",
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HaulerDashboardScreen(
+                                      haulerUser, simulatedModel)));
+                        }),
+                    NavigationButton(
+                        label: "Accept",
+                        onPressed: () {
+                          simulatedModel.acceptRequest(
+                              dockingBayRequest, haulerUser);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HaulerDashboardScreen(
+                                      haulerUser, simulatedModel)));
+                        }),
+                  ],
+                ),
               ]),
         ),
       ),
