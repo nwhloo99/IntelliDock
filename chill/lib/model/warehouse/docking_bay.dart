@@ -55,15 +55,4 @@ class DockingBay {
     incomingHauler.add(hauler);
     return true;
   }
-
-  // Timer Methods
-
-  /**
-   * private method _calEstTime to dynamically update the estimatedDuration
-   * left in the docking_bay.
-   */
-  void _calEstTimeRemainingForCargo() {
-    Duration timeDiff = DateTime.now().difference(startTime);
-    estimatedDuration -= timeDiff;
-  }
 }

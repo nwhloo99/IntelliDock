@@ -56,13 +56,4 @@ class Hauler {
         break;
     }
   }
-
-  /**
-   * private method _calEstTime to dynamically update the estimatedDuration
-   * left for hauler.
-   */
-  void _calEstTimeRemainingToLocation() {
-    Duration timeDiff = DateTime.now().difference(startTime);
-    EstimatedTravelTime -= timeDiff;
-  }
 }

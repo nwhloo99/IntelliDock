@@ -2,7 +2,6 @@ import 'package:chill/model/commands/queue/create_request_cmd.dart';
 import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/requests/request.dart';
-import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
