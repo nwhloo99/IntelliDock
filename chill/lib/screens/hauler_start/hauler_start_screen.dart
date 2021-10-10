@@ -41,6 +41,7 @@ class _HaulerStartScreenState extends State<HaulerStartScreen> {
         NavigationButton(
             label: "Finished",
             onPressed: () {
+              this.widget.haulerUser.currentBooking.removeAt(0);
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
