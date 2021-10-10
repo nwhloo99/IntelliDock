@@ -18,7 +18,7 @@ Model generateModelNull() {
 }
 
 /** MODEL A
- * WareHouse A: 3 Docking, Warehouse B: 2 Docking
+ * WareHouse A: 3 Docking, Warehouse B: 2 Docking; 2
  * Hauler 1 travelling to unload at A,1
  * Hauler 2 travelling to load at B,2
  */
@@ -30,7 +30,7 @@ Model generateModelA() {
 }
 
 /** MODEL B
- * Warehouse A: 5 Docking
+ * Warehouse A: 5 Docking; 3
  * Hauler 1 travelling to load at A,1
  * Hauler 2 occupying & loading at A,2
  * Hauler 3 occupying & unloading at A,3
@@ -44,7 +44,7 @@ Model generateModeB() {
 }
 
 /** MODEL C
- * Warehouse A: 1 Docking
+ * Warehouse A: 1 Docking; 1 Hauler
  * Flow to test: 
  * A,1 -> to send unloading request
  * Hauler1 -> to receive request and indicate on the way
@@ -63,4 +63,35 @@ Model generateModelC() {
   templateModelC.warehouse_unloading_in(0, 'A', 1);
   templateModelC.warehouse_unloading_out(0, 'A', 1);
   return templateModelC;
+}
+
+/** MODEL D
+ * Warehouse A: 6 Docking; 1 Hauler
+ * Testing Unloading and Loading Requests
+ */
+Model generateModelD() {
+  Request lReq1 = Request(request_type.Loading, 'A', 1);
+  Request lReq2 = Request(request_type.Loading, 'A', 2);
+  Request lReq3 = Request(request_type.Loading, 'A', 3);
+  Request unReq1 = Request(request_type.Unloading, 'A', 4);
+  Request unReq2 = Request(request_type.Unloading, 'A', 5);
+  Request unReq3 = Request(request_type.Unloading, 'A', 6);
+  Model templateModelD = new Model([6], 1);
+  templateModelD.receiveLoadingRequest(lReq1);
+  templateModelD.receiveLoadingRequest(lReq2);
+  templateModelD.receiveLoadingRequest(lReq3);
+  templateModelD.receiveUnloadingRequest(unReq1);
+  templateModelD.receiveUnloadingRequest(unReq2);
+  templateModelD.receiveUnloadingRequest(unReq3);
+  return templateModelD;
+}
+
+/** MODEL FULL
+ * Full Model; 
+ * Warehouse A: 17 Docking, Warehouse B: 17 Docking; Warehouse C: 7 Docking
+ * Warehouse D: 7 Docking; Warehouse E: 21; Fleet of 20 Haulers
+ */
+Model generateModelFULL() {
+  Model templateModelFULL = new Model([17, 17, 7, 7, 21], 20);
+  return templateModelFULL;
 }
