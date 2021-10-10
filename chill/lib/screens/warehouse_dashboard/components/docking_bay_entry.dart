@@ -1,3 +1,6 @@
+import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid_available.dart';
+import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid_awaiting.dart';
+import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid_occupied.dart';
 import 'package:chill/utils/constants.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
@@ -40,52 +43,21 @@ class _DockingBayEntryState extends State<DockingBayEntry> {
 
   @override
   Widget build(BuildContext context) {
-    String nxtHauler = '';
-    String ETAofNxtHauler = '';
-    if (this.widget.dockingBay.incomingHauler.isEmpty) {
-      nxtHauler = 'NIL';
-      ETAofNxtHauler = 'NIL';
-    } else {
-      nxtHauler =
-          this.widget.dockingBay.incomingHauler.first.haulerNum.toString();
-      ETAofNxtHauler = this
-          .widget
-          .dockingBay
-          .incomingHauler
-          .first
-          .EstimatedTravelTime
-          .inMinutes
-          .toString();
-    }
+    switch (this.widget.dockingBay.state) {
+      case BayState.Available:
+        {
+          return DockingBayGridAvailable(dockingBay: this.widget.dockingBay);
+        }
 
-    String currentHauler = '';
-    String timeLft = '';
-    if (this.widget.dockingBay.state == BayState.Occupied) {
-      // currentHauler = this.widget.dockingBay.currentHauler.haulerNum.toString();
-      // timeLft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
-    } else {
-      currentHauler = 'NIL';
-      timeLft = 'NIL';
-    }
+      case BayState.Awaiting:
+        {
+          return DockingBayGridAwaiting(dockingBay: this.widget.dockingBay);
+        }
 
-    return Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: getStatusColor(this.widget.dockingBay)),
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: Column(children: <Widget>[
-          ListHeader(header: this.widget.dockingBay.bayNum.toString()),
-          EntryText(
-              data: "Status: " +
-                  (this.widget.dockingBay.state == BayState.Occupied
-                      ? "In use"
-                      : "Free")),
-          EntryText(data: "Next Hauler: " + nxtHauler),
-          EntryText(data: "ETA: " + ETAofNxtHauler + " min"),
-          EntryText(data: "Hauler at bay: " + currentHauler),
-          EntryText(data: "Time till available: " + timeLft + " min"),
-          NavigationButton(label: "Request", onPressed: () {})
-        ]));
+      case BayState.Occupied:
+        {
+          return DockingBayGridOccupied(dockingBay: this.widget.dockingBay);
+        }
+    }
   }
 }
