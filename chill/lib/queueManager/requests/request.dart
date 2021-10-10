@@ -5,5 +5,5 @@ class Request {
   num bayNum;
   String warehouseName;
 
-  Request(this.type, this.bayNum, this.warehouseName);
+  Request(this.type, this.warehouseName, this.bayNum);
 }

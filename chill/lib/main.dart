@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /** TODO 
+ * Improvements to HaulerUser and BayUser generation?
+ * 
  * font size based on pixels
  */
 void main() {

@@ -1,4 +1,8 @@
+import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
+import 'package:chill/queueManager/requests/request.dart';
+import 'package:chill/queueManager/user/hauler_user.dart';
+import 'package:chill/utils/constants.dart';
 
 /**
  * TEST
@@ -41,7 +45,7 @@ Model generateModeB() {
 
 /** MODEL C
  * Warehouse A: 1 Docking
- * TODO; Flow to test: 
+ * Flow to test: 
  * A,1 -> to send unloading request
  * Hauler1 -> to receive request and indicate on the way
  * A,1 -> see that Hauler1 is otw
@@ -50,15 +54,13 @@ Model generateModeB() {
  * A,1 -> indicate unloading is complete
  */
 Model generateModelC() {
+  Request req = Request(request_type.Loading, 'A', 1);
+  HaulerUser user = new HaulerUser(new Hauler(0));
   Model templateModelC = new Model([1], 1);
+  templateModelC.receiveUnloadingRequest(req);
+  templateModelC.acceptUnloadingRequest(req, user);
+  templateModelC.hauler_travelling_to_unload(0, 'A', 1);
+  templateModelC.warehouse_unloading_in(0, 'A', 1);
+  templateModelC.warehouse_unloading_out(0, 'A', 1);
   return templateModelC;
 }
-
-/** MODEL D 
- *  simulatedModel
-        .receiveLoadingRequest(new Request(request_type.Loading, 2, 'A'));
-    simulatedModel
-        .receiveLoadingRequest(new Request(request_type.Loading, 3, 'A'));
-    simulatedModel
-        .receiveLoadingRequest(new Request(request_type.Loading, 4, 'A'));
- */
