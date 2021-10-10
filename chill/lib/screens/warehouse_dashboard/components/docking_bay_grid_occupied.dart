@@ -43,23 +43,33 @@ class _DockingBayGridOccupiedState extends State<DockingBayGridOccupied> {
       timeLeft = '-';
     }
 
-    return Container(
-        decoration: BoxDecoration(
-            border: Border.all(color: Color(0xFFFF3212)),
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ListHeader(
-                  header: "Docking Bay: " +
-                      this.widget.dockingBay.bayNum.toString()),
-              InfoListOccupied(
-                  nextHauler: nextHauler,
-                  etaOfNextHauler: etaOfNextHauler,
-                  timeLeft: timeLeft)
-            ]));
+    return ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+        child: InkWell(
+            splashColor: Colors.red,
+            focusColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            onLongPress: () {
+              print("SWITCH TO AVAILABLE");
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xFFFF3212)),
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      ListHeader(
+                          header: "Docking Bay: " +
+                              this.widget.dockingBay.bayNum.toString()),
+                      InfoListOccupied(
+                          nextHauler: nextHauler,
+                          etaOfNextHauler: etaOfNextHauler,
+                          timeLeft: timeLeft)
+                    ]))));
   }
 }
 
