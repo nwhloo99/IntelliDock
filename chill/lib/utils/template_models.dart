@@ -54,11 +54,11 @@ Model generateModelB() {
  * A,1 -> indicate unloading is complete
  */
 Model generateModelC() {
-  Request req = Request(request_type.Loading, 'A', 1);
+  Request req = Request(JobType.Unloading, 'A', 1);
   HaulerUser user = new HaulerUser(new Hauler(0));
   Model templateModelC = new Model([1], 1);
-  templateModelC.receiveUnloadingRequest(req);
-  templateModelC.acceptUnloadingRequest(req, user);
+  templateModelC.receiveRequest(req);
+  templateModelC.acceptRequest(req, user);
   templateModelC.hauler_travelling_to_unload(0, 'A', 1);
   templateModelC.warehouse_unloading_in(0, 'A', 1);
   templateModelC.warehouse_unloading_out(0, 'A', 1);
@@ -70,19 +70,19 @@ Model generateModelC() {
  * Testing Unloading and Loading Requests
  */
 Model generateModelD() {
-  Request lReq1 = Request(request_type.Loading, 'A', 1);
-  Request lReq2 = Request(request_type.Loading, 'A', 2);
-  Request lReq3 = Request(request_type.Loading, 'A', 3);
-  Request unReq1 = Request(request_type.Unloading, 'A', 4);
-  Request unReq2 = Request(request_type.Unloading, 'A', 5);
-  Request unReq3 = Request(request_type.Unloading, 'A', 6);
+  Request lReq1 = Request(JobType.Loading, 'A', 1);
+  Request lReq2 = Request(JobType.Loading, 'A', 2);
+  Request lReq3 = Request(JobType.Loading, 'A', 3);
+  Request unReq1 = Request(JobType.Unloading, 'A', 4);
+  Request unReq2 = Request(JobType.Unloading, 'A', 5);
+  Request unReq3 = Request(JobType.Unloading, 'A', 6);
   Model templateModelD = new Model([6], 1);
-  templateModelD.receiveLoadingRequest(lReq1);
-  templateModelD.receiveLoadingRequest(lReq2);
-  templateModelD.receiveLoadingRequest(lReq3);
-  templateModelD.receiveUnloadingRequest(unReq1);
-  templateModelD.receiveUnloadingRequest(unReq2);
-  templateModelD.receiveUnloadingRequest(unReq3);
+  templateModelD.receiveRequest(lReq1);
+  templateModelD.receiveRequest(lReq2);
+  templateModelD.receiveRequest(lReq3);
+  templateModelD.receiveRequest(unReq1);
+  templateModelD.receiveRequest(unReq2);
+  templateModelD.receiveRequest(unReq3);
   return templateModelD;
 }
 

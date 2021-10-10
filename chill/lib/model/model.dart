@@ -160,40 +160,31 @@ class Model {
   // QUEUE Related
   //--------Handling Command requests-------------------------------------------
   /**
-   * Handles accept_loading_request input
+   * Handles accept_request input
    */
-  void acceptLoadingRequest(Request request, HaulerUser haulerUser) {
-    loadingQueue.requestList.remove(request);
-    haulerUser.currentBooking.add(request);
-  }
-
-  /**
-   * Handles create_loading_request input
-   */
-  bool receiveLoadingRequest(Request request) {
-    if (request.type != request_type.Loading) {
+  bool acceptRequest(Request request, HaulerUser haulerUser) {
+    if (request.type == JobType.Loading) {
+      loadingQueue.requestList.remove(request);
+    } else if (request.type == JobType.Unloading) {
+      unloadingQueue.requestList.remove(request);
+    } else {
       return false;
     }
-    loadingQueue.requestList.add(request);
+    haulerUser.currentBooking.add(request);
     return true;
   }
 
   /**
-   * Handles accept_unloading_request input
+   * Handles create_request input
    */
-  void acceptUnloadingRequest(Request request, HaulerUser haulerUser) {
-    unloadingQueue.requestList.remove(request);
-    haulerUser.currentBooking.add(request);
-  }
-
-  /**
-   * Handles create_unloading_request input
-   */
-  bool receiveUnloadingRequest(Request request) {
-    if (request.type == request_type.Loading) {
+  bool receiveRequest(Request request) {
+    if (request.type == JobType.Loading) {
+      loadingQueue.requestList.add(request);
+    } else if (request.type == JobType.Unloading) {
+      unloadingQueue.requestList.add(request);
+    } else {
       return false;
     }
-    unloadingQueue.requestList.add(request);
     return true;
   }
 }

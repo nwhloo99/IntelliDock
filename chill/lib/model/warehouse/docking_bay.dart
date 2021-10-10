@@ -3,6 +3,7 @@ import 'package:chill/model/hauler/hauler.dart';
 
 class DockingBay {
   BayState state = BayState.Available;
+  JobType type;
   num bayNum;
   String parentWarehouse;
 
@@ -17,7 +18,7 @@ class DockingBay {
   /**
    * Arbitrary Constructor for docking_bay
    */
-  DockingBay(this.bayNum, this.parentWarehouse) {}
+  DockingBay(this.type, this.bayNum, this.parentWarehouse) {}
 
   // Hauler Methods
 

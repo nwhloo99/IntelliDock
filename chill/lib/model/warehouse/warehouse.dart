@@ -1,4 +1,5 @@
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/utils/constants.dart';
 
 /**
  * Warehouse class containing loading and unloading bays
@@ -22,8 +23,10 @@ class Warehouse {
     List<DockingBay> tempListLoading = [];
     List<DockingBay> tempListUnloading = [];
     for (int i = 0; i < numOfBays; i++) {
-      tempListLoading.add(new DockingBay(i + 1, warehouseName));
-      tempListUnloading.add(new DockingBay(i + 1, warehouseName));
+      tempListLoading
+          .add(new DockingBay(JobType.Loading, i + 1, warehouseName));
+      tempListUnloading
+          .add(new DockingBay(JobType.Unloading, i + 1, warehouseName));
     }
     return new Warehouse._(warehouseName, tempListLoading, tempListUnloading);
   }

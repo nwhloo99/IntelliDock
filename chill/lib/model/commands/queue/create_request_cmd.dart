@@ -2,13 +2,13 @@ import 'package:chill/model/commands/command.dart';
 import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/requests/request.dart';
 
-class CreateUnloadingRequest extends Command {
-  Model model;
+class CreateRequestCommand extends Command {
   Request request;
+  Model model;
 
-  CreateUnloadingRequest(this.request, this.model) {}
+  CreateRequestCommand(this.request, this.model) {}
 
   void execute() {
-    this.model.receiveUnloadingRequest(request);
+    this.model.receiveRequest(request);
   }
 }

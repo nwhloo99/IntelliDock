@@ -22,9 +22,6 @@ const String fFamily = 'Montserrat';
 // Average Queueing Delay in minutes
 const Queue_Delay = 60;
 
-// Enum for Request Type
-enum request_type { Loading, Unloading }
-
 // Time to Warehouses in minutes (used by Hauler method parseWarehouse)
 const int TTWarehouseA = 10; // 17 Dock Bays
 const int TTWarehouseB = 6; // 17 Dock Bays
@@ -46,3 +43,6 @@ enum hauler_state {
 
 // Bay states
 enum BayState { Available, Awaiting, Occupied }
+
+// Bay type
+enum JobType { Loading, Unloading }

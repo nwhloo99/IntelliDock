@@ -1,3 +1,4 @@
+import 'package:chill/model/commands/queue/create_request_cmd.dart';
 import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/queueManager/requests/request.dart';
@@ -124,11 +125,12 @@ class InfoListOccupied extends StatelessWidget {
                                 label: "Cancel"),
                             NavigationButton(
                                 onPressed: () {
-                                  simulatedModel.receiveLoadingRequest(
+                                  CreateRequestCommand(
                                       new Request(
-                                          request_type.Loading,
+                                          JobType.Loading,
                                           dockingBay.parentWarehouse,
-                                          dockingBay.bayNum));
+                                          dockingBay.bayNum),
+                                      simulatedModel);
                                   Navigator.pop(context, 'Confirm');
                                 },
                                 label: "Confirm"),

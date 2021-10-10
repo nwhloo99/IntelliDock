@@ -10,7 +10,7 @@ Currently, the application only runs on devices without server-side support, how
 ## Using the App
 When users first enter the application, they will be greeted with a login page prompting users to select either warehouse user or haulier user.
 
-![Login Page](http://url/to/img.png)
+![Login Page](/chill/assets/images/LoginPage.png)
 
 ### Warehouse Users
 If `Warehouse` is selected, the Warehouse User page will be displayed
@@ -23,8 +23,20 @@ Docking bays have 3 states
 * Occupied (Red border)
 
 #### Available
-If the docking bay is available
+If the docking bay is available, the Warehouse User can hit `Request` to send a request to the hauliers indicating that the warehouse is ready to either unload or load based on the type of docking bay.
+
+#### Awaiting
+If the docking bay is awaiting, that Docking Bay is currently waiting for Hauler with the specified number to arrive
+
+#### Occupied
+If the docking bay is occupied, that Docking bay is currently unloading or loading cargo, however, if the Warehouse User sees that the current unloading or loading process is completing, the Warehouse User can choose to send a request using `Request` for a Hauler to come to the Docking Bay
 
 ### Haulier Users
+If `Hauler` is selected, the Haulier User page will be displayed
 
+![Haulier User](/chill/assets/images/HaulerPage.png)
+
+Here, Hauliers can view the requests sent by the Warehouse Users and hit the `right arrow button` on the request and select that request to add to their list of current request. This will update the overall request list and remove it so other Hauliers will not take the same request
+
+The Haulier will then hit `Start` to begin performing this request,
 ## Next Steps

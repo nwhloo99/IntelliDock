@@ -1,7 +1,7 @@
 import 'package:chill/utils/constants.dart';
 
 class Request {
-  request_type type;
+  JobType type;
   num bayNum;
   String warehouseName;
 
