@@ -9,6 +9,12 @@ import 'package:chill/utils/template_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/** TODO
+ * map -> hauler_travelling: parse warehousename into template estTravelTime
+ * refactor commands to model instead to neaten code
+ * change commands to not reference hauler object but number
+ * model should take in total number of haulers
+ */
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
