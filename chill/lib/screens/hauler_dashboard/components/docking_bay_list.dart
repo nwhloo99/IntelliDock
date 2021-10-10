@@ -5,6 +5,7 @@ import 'package:chill/screens/hauler_dashboard/components/docking_bay_card.dart'
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;

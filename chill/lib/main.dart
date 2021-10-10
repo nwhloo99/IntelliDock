@@ -23,14 +23,15 @@ void main() {
   // runApp(new MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   // Initialization of Users & Model
   HaulerUser haulerUser = new HaulerUser(new Hauler(0));
-  WarehouseUser bayUser = new WarehouseUser(generateModeB()
+  WarehouseUser bayUser = new WarehouseUser(generateModelB()
       .map
       .warehouses
       .firstWhere((element) => element.warehouseName == ('A')));
-  Model simulatedModel = generateModeB();
+  Model simulatedModel = generateModelB();
 
   // This widget is the root of your application.
   @override

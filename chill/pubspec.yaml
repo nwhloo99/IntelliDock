@@ -64,8 +64,8 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/Montserrat-Medium.ttf
-        - asset: assets/Montserrat-MediumItalic.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat-MediumItalic.ttf
           style: italic
   #
   # For details regarding fonts from package dependencies,
