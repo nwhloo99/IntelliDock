@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
                               simulatedModel: simulatedModel)));
                 }),
             NavigationButton(
-                label: "Hauler",
+                label: "Haulier",
                 onPressed: () {
                   Navigator.push(
                       context,

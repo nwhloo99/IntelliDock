@@ -2,7 +2,6 @@ import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/utils/constants.dart';
 import 'package:chill/screens/hauler_dashboard/components/current_booking.dart';
-import 'package:chill/screens/hauler_dashboard/components/dashboard_buttons.dart';
 import 'package:chill/screens/hauler_dashboard/components/docking_bay_list.dart';
 import 'package:flutter/material.dart';
 
