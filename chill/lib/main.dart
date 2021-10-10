@@ -23,6 +23,7 @@ void main() {
   // runApp(new MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   // Initialization of Users & Model
   HaulerUser haulerUser = new HaulerUser(new Hauler(0));

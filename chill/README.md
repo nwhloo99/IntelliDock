@@ -1,16 +1,22 @@
-# chill
+# IntelliDock
+IntelliDock is an intelligent docking solution to improve docking traffic
 
-A new Flutter project.
+## Introduction
+With the goal of improving visibility of the availability of docking bays and showing expected timings of hauliers to arrive at the docks, IntelliDock aims to achieve this using a clear front end app to be installed on mobile devices such as phones or tablets, and an assisting server side to manage the processes, as well as allowing managers to monitor the situation on the ground more effectively.
 
-## Getting Started
+### Cautions
+Currently, the application only runs on devices without server-side support, however if the project is to be developed on, server-side support would create a more effective system
 
-This project is a starting point for a Flutter application.
+## Using the App
+When users first enter the application, they will be greeted with a login page prompting users to select either warehouse user or haulier user.
 
-A few resources to get you started if this is your first Flutter project:
+![Login Page](http://url/to/img.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Warehouse Users
+If `Warehouse` is selected, the Warehouse User page will be displayed
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Warehouse User](/assets/images/WarehousePage.png)
+
+### Haulier Users
+
+## Next Steps

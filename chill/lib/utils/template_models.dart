@@ -35,7 +35,7 @@ Model generateModelA() {
  * Hauler 2 occupying & loading at A,2
  * Hauler 3 occupying & unloading at A,3
  */
-Model generateModeB() {
+Model generateModelB() {
   Model templateModelB = new Model([5], 3);
   templateModelB.hauler_travelling_to_load(0, 'A', 1);
   templateModelB.warehouse_loading_in(1, 'A', 2);
