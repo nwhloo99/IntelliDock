@@ -8,10 +8,7 @@ import 'package:chill/utils/template_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/** TODO
- * model -> hauler_travelling: parse warehousename into template estTravelTime
- * change commands to not reference hauler object but number
- * 
+/** TODO 
  * font size based on pixels
  */
 void main() {

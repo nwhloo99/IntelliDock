@@ -38,8 +38,9 @@ class Model {
     haulers
         .firstWhere((element) => element.haulerNum == haulerNum)
         .setState_TravellingToLoad();
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..EstimatedTravelTime = Duration(minutes: 10);
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .getTTWarehouse(warehouseName);
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
@@ -52,10 +53,12 @@ class Model {
    */
   void hauler_travelling_to_unload(
       num haulerNum, String warehouseName, num bayNumber) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_TravellingToUnload();
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..EstimatedTravelTime = Duration(minutes: 10);
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_TravellingToUnload();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .getTTWarehouse(warehouseName);
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
@@ -68,8 +71,9 @@ class Model {
    */
   void warehouse_loading_in(
       num haulerNum, String warehouseName, num bayNumber) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_Loading();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_Loading();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
@@ -82,8 +86,9 @@ class Model {
    */
   void warehouse_loading_out(
       num haulerNum, String warehouseName, num bayNumber) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_Waiting();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_Waiting();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .loadingBays[(bayNumber - 1).toInt()]
@@ -95,8 +100,9 @@ class Model {
    */
   void warehouse_unloading_in(
       num haulerNum, String warehouseName, num bayNumber) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_Unloading();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_Unloading();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .unloadingBays[(bayNumber - 1).toInt()]
@@ -109,8 +115,9 @@ class Model {
    */
   void warehouse_unloading_out(
       num haulerNum, String warehouseName, num bayNumber) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_Waiting();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_Waiting();
     map.warehouses
         .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
         .unloadingBays[(bayNumber - 1).toInt()]
@@ -121,8 +128,9 @@ class Model {
    * Handles port_tap_in input
    */
   void port_in(num haulerNum) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_Waiting();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_Waiting();
     map.startingPort.haulerEnter(
         haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
@@ -131,8 +139,9 @@ class Model {
    * Handles port_loading_tap_out input
    */
   void port_loading_out(num haulerNum) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_TravellingToLoad();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_TravellingToLoad();
     map.startingPort.haulerExit(
         haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }
@@ -141,8 +150,9 @@ class Model {
    * Handles port_unloading_tap_out input
    */
   void port_out_unloading(num haulerNum) {
-    haulers.firstWhere((element) => element.haulerNum == haulerNum)
-      ..setState_TravellingToUnload();
+    haulers
+        .firstWhere((element) => element.haulerNum == haulerNum)
+        .setState_TravellingToUnload();
     map.startingPort.haulerExit(
         haulers.firstWhere((element) => element.haulerNum == haulerNum));
   }

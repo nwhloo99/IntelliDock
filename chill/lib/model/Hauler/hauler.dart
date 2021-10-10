@@ -34,6 +34,28 @@ class Hauler {
   }
 
   // Time Methods
+  /**
+   * parse warehouse to get estimated duration
+   */
+  void parseWarehouse(String warehouseName) {
+    switch (warehouseName) {
+      case 'A':
+        EstimatedTravelTime = Duration(minutes: TTWarehouseA);
+        break;
+      case 'B':
+        EstimatedTravelTime = Duration(minutes: TTWarehouseB);
+        break;
+      case 'C':
+        EstimatedTravelTime = Duration(minutes: TTWarehouseC);
+        break;
+      case 'D':
+        EstimatedTravelTime = Duration(minutes: TTWarehouseD);
+        break;
+      case 'E':
+        EstimatedTravelTime = Duration(minutes: TTWarehouseE);
+        break;
+    }
+  }
 
   /**
    * private method _calEstTime to dynamically update the estimatedDuration
