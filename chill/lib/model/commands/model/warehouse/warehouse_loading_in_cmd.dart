@@ -8,7 +8,9 @@ class WarehouseLoadingInCommand extends Command {
   num bayNumber;
 
   WarehouseLoadingInCommand(
-      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {}
+      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {
+    execute();
+  }
 
   void execute() {
     this.model.warehouse_loading_in(haulerNum, warehouseName, bayNumber);

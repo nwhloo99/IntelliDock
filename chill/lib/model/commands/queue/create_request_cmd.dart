@@ -6,7 +6,9 @@ class CreateRequestCommand extends Command {
   Request request;
   Model model;
 
-  CreateRequestCommand(this.request, this.model) {}
+  CreateRequestCommand(this.request, this.model) {
+    execute();
+  }
 
   void execute() {
     this.model.receiveRequest(request);

@@ -8,7 +8,9 @@ class WarehouseUnloadingOutCommand extends Command {
   num bayNumber;
 
   WarehouseUnloadingOutCommand(
-      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {}
+      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {
+    execute();
+  }
 
   void execute() {
     this.model.warehouse_unloading_out(haulerNum, warehouseName, bayNumber);

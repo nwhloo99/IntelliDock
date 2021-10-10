@@ -8,7 +8,9 @@ class WarehouseUnloadingInCommand extends Command {
   num bayNumber;
 
   WarehouseUnloadingInCommand(
-      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {}
+      this.haulerNum, this.warehouseName, this.bayNumber, this.model) {
+    execute();
+  }
 
   void execute() {
     this.model.warehouse_unloading_in(haulerNum, warehouseName, bayNumber);

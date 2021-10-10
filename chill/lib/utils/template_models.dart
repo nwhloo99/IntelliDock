@@ -24,8 +24,8 @@ Model generateModelNull() {
  */
 Model generateModelA() {
   Model templateModelA = new Model([3, 2], 2);
-  templateModelA.hauler_travelling_to_unload(0, 'A', 1);
-  templateModelA.hauler_travelling_to_load(1, 'B', 2);
+  templateModelA.hauler_travelling_to_destination(0, 'A', 1);
+  templateModelA.hauler_travelling_to_destination(1, 'B', 2);
   return templateModelA;
 }
 
@@ -37,7 +37,7 @@ Model generateModelA() {
  */
 Model generateModelB() {
   Model templateModelB = new Model([5], 3);
-  templateModelB.hauler_travelling_to_load(0, 'A', 1);
+  templateModelB.hauler_travelling_to_destination(0, 'A', 1);
   templateModelB.warehouse_loading_in(1, 'A', 2);
   templateModelB.warehouse_unloading_in(2, 'A', 3);
   return templateModelB;
@@ -59,7 +59,7 @@ Model generateModelC() {
   Model templateModelC = new Model([1], 1);
   templateModelC.receiveRequest(req);
   templateModelC.acceptRequest(req, user);
-  templateModelC.hauler_travelling_to_unload(0, 'A', 1);
+  templateModelC.hauler_travelling_to_destination(0, 'A', 1);
   templateModelC.warehouse_unloading_in(0, 'A', 1);
   templateModelC.warehouse_unloading_out(0, 'A', 1);
   return templateModelC;

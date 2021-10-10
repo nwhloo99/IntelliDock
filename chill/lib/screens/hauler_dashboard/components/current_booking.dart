@@ -1,4 +1,4 @@
-import 'package:chill/model/commands/model/warehouse/hauler_travelling_to_load_cmd.dart';
+import 'package:chill/model/commands/model/warehouse/hauler_travelling_to_destination_cmd.dart';
 import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/utils/constants.dart';
@@ -60,7 +60,7 @@ class CurrentJobInfo extends StatelessWidget {
               NavigationButton(
                   label: "Start",
                   onPressed: () {
-                    HaulerTravellingToLoadCommand(
+                    HaulerTravellingToDestinationCommand(
                         this.haulerUser.self.haulerNum,
                         this.haulerUser.currentBooking.first.warehouseName,
                         this.haulerUser.currentBooking.first.bayNum,

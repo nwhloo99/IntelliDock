@@ -8,7 +8,9 @@ class AcceptRequestCommand extends Command {
   Request request;
   Model model;
 
-  AcceptRequestCommand(this.accepter, this.request, this.model) {}
+  AcceptRequestCommand(this.accepter, this.request, this.model) {
+    execute();
+  }
 
   void execute() {
     this.model.acceptRequest(request, accepter);

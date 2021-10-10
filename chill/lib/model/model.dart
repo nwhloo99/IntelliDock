@@ -33,29 +33,11 @@ class Model {
   /**
    * Handles hauler_travelling_to_load input
    */
-  void hauler_travelling_to_load(
+  void hauler_travelling_to_destination(
       num haulerNum, String warehouseName, num bayNumber) {
     haulers
         .firstWhere((element) => element.haulerNum == haulerNum)
         .setState_TravellingToLoad();
-    haulers
-        .firstWhere((element) => element.haulerNum == haulerNum)
-        .getTTWarehouse(warehouseName);
-    map.warehouses
-        .firstWhere((warehouse) => warehouse.warehouseName == warehouseName)
-        .loadingBays[(bayNumber - 1).toInt()]
-        .haulerOTW(
-            haulers.firstWhere((element) => element.haulerNum == haulerNum));
-  }
-
-  /**
-   * Handles hauler_travelling_to_unload input
-   */
-  void hauler_travelling_to_unload(
-      num haulerNum, String warehouseName, num bayNumber) {
-    haulers
-        .firstWhere((element) => element.haulerNum == haulerNum)
-        .setState_TravellingToUnload();
     haulers
         .firstWhere((element) => element.haulerNum == haulerNum)
         .getTTWarehouse(warehouseName);

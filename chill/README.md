@@ -31,12 +31,26 @@ If the docking bay is awaiting, that Docking Bay is currently waiting for Hauler
 #### Occupied
 If the docking bay is occupied, that Docking bay is currently unloading or loading cargo, however, if the Warehouse User sees that the current unloading or loading process is completing, the Warehouse User can choose to send a request using `Request` for a Hauler to come to the Docking Bay
 
+#### Making Requests
+After hitting request, Warehouse Users will be prompted to confirm the creation of the request so as to avoid overloading the queue
+
+![Confirm Request](/chill/assets/images/ConfirmRequest.png)
+
 ### Haulier Users
 If `Hauler` is selected, the Haulier User page will be displayed
 
 ![Haulier User](/chill/assets/images/HaulerPage.png)
 
-Here, Hauliers can view the requests sent by the Warehouse Users and hit the `right arrow button` on the request and select that request to add to their list of current request. This will update the overall request list and remove it so other Hauliers will not take the same request
+Here, Hauliers can view the requests sent by the Warehouse Users and hit the `right arrow button` on the request to select that request to add to their list of current request. They will then be brought to a confirmation page,
 
-The Haulier will then hit `Start` to begin performing this request,
+![Select Job](/chill/assets/images/AcceptJob.png)
+
+where Hauliers can hit `accept` to confirm the acceptance of the job. This will update the overall request list and remove it so other Hauliers will not take the same request
+
+The Haulier will then hit `Start` under current to begin performing this request.
+
+![Start Job](/chill/assets/images/JobStart.png)
+
+When the job is complete, the Haulier can just hit `Finish` to indicate that the job is complete and move on to the next request.
+
 ## Next Steps
