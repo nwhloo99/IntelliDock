@@ -37,7 +37,7 @@ class Hauler {
   /**
    * parse warehouse to get estimated duration
    */
-  void parseWarehouse(String warehouseName) {
+  void getTTWarehouse(String warehouseName) {
     switch (warehouseName) {
       case 'A':
         EstimatedTravelTime = Duration(minutes: TTWarehouseA);
