@@ -1,7 +1,6 @@
 import 'package:chill/utils/constants.dart';
 import 'package:chill/model/hauler/hauler.dart';
 import 'package:chill/model/model.dart';
-import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/queueManager/user/hauler_user.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/screens/login/login_screen.dart';
@@ -11,7 +10,6 @@ import 'package:flutter/services.dart';
 
 /** TODO
  * map -> hauler_travelling: parse warehousename into template estTravelTime
- * refactor commands to model instead to neaten code (Queue Commands)
  * change commands to not reference hauler object but number
  * model should take in total number of haulers
  */
