@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              "WELCOME TO MOBILE LEGENDS",
+              "IntelliDock",
               style: TextStyle(
                   fontSize: (size.width / 1024) * kHeaderFont1,
                   fontWeight: FontWeight.bold),
