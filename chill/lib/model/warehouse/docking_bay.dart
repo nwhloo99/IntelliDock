@@ -4,6 +4,7 @@ import 'package:chill/model/hauler/hauler.dart';
 class DockingBay {
   BayState state = BayState.Available;
   num bayNum;
+  String parentWarehouse;
 
   // Time related elements
   DateTime startTime = DateTime.now();
@@ -16,7 +17,7 @@ class DockingBay {
   /**
    * Arbitrary Constructor for docking_bay
    */
-  DockingBay(this.bayNum) {}
+  DockingBay(this.bayNum, this.parentWarehouse) {}
 
   // Hauler Methods
 

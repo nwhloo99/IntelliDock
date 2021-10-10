@@ -8,11 +8,12 @@ import 'package:chill/screens/widgets/navigation_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage(this.haulerUser, this.bayUser, this.simulatedModel, {Key? key})
+  LoginPage(this.haulerUser, this.warehouseUser, this.simulatedModel,
+      {Key? key})
       : super(key: key);
 
   final HaulerUser haulerUser;
-  final WarehouseUser bayUser;
+  final WarehouseUser warehouseUser;
   final Model simulatedModel;
 
   @override
@@ -38,8 +39,9 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              WarehouseDashboardScreen(bayUser)));
+                          builder: (context) => WarehouseDashboardScreen(
+                              warehouseUser: warehouseUser,
+                              simulatedModel: simulatedModel)));
                 }),
             NavigationButton(
                 label: "Hauler",

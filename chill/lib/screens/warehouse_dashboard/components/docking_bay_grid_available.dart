@@ -1,14 +1,19 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/requests/request.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
+import 'package:chill/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayGridAvailable extends StatefulWidget {
-  const DockingBayGridAvailable({Key? key, required this.dockingBay})
+  const DockingBayGridAvailable(
+      {Key? key, required this.dockingBay, required this.simulatedModel})
       : super(key: key);
 
   final DockingBay dockingBay;
+  final Model simulatedModel;
 
   @override
   _DockingBayGridAvailableState createState() =>
@@ -30,13 +35,20 @@ class _DockingBayGridAvailableState extends State<DockingBayGridAvailable> {
               ListHeader(
                   header: "Docking Bay: " +
                       this.widget.dockingBay.bayNum.toString()),
-              InfoListAvailable()
+              InfoListAvailable(
+                  dockingBay: this.widget.dockingBay,
+                  simulatedModel: this.widget.simulatedModel)
             ]));
   }
 }
 
 class InfoListAvailable extends StatelessWidget {
-  const InfoListAvailable({Key? key}) : super(key: key);
+  const InfoListAvailable(
+      {Key? key, required this.dockingBay, required this.simulatedModel})
+      : super(key: key);
+
+  final DockingBay dockingBay;
+  final Model simulatedModel;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +57,14 @@ class InfoListAvailable extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         EntryText(data: "Status: Available"),
-        NavigationButton(label: "Request", onPressed: () {})
+        NavigationButton(
+            label: "Request",
+            onPressed: () {
+              simulatedModel.receiveLoadingRequest(new Request(
+                  request_type.Loading,
+                  dockingBay.parentWarehouse,
+                  dockingBay.bayNum));
+            })
       ],
     ));
   }

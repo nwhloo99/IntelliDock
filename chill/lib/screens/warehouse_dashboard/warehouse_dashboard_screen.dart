@@ -1,13 +1,16 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/utils/constants.dart';
 import 'package:chill/screens/warehouse_dashboard/components/docking_bay_grid.dart';
 import 'package:flutter/material.dart';
 
 class WarehouseDashboardScreen extends StatefulWidget {
-  final WarehouseUser warehouseUser;
-
-  const WarehouseDashboardScreen(this.warehouseUser, {Key? key})
+  const WarehouseDashboardScreen(
+      {Key? key, required this.warehouseUser, required this.simulatedModel})
       : super(key: key);
+
+  final WarehouseUser warehouseUser;
+  final Model simulatedModel;
 
   @override
   _WarehouseDashboardScreenState createState() =>
@@ -28,7 +31,9 @@ class _WarehouseDashboardScreenState extends State<WarehouseDashboardScreen> {
                           style: TextStyle(
                               fontSize: (size.width / 1200) * kHeaderFont1,
                               fontWeight: FontWeight.bold))),
-                  DockingBayGrid(this.widget.warehouseUser),
+                  DockingBayGrid(
+                      warehouseUser: this.widget.warehouseUser,
+                      simulatedModel: this.widget.simulatedModel),
                 ]))));
   }
 }

@@ -22,8 +22,8 @@ class Warehouse {
     List<DockingBay> tempListLoading = [];
     List<DockingBay> tempListUnloading = [];
     for (int i = 0; i < numOfBays; i++) {
-      tempListLoading.add(new DockingBay(i + 1));
-      tempListUnloading.add(new DockingBay(i + 1));
+      tempListLoading.add(new DockingBay(i + 1, warehouseName));
+      tempListUnloading.add(new DockingBay(i + 1, warehouseName));
     }
     return new Warehouse._(warehouseName, tempListLoading, tempListUnloading);
   }

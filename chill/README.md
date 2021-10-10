@@ -15,7 +15,15 @@ When users first enter the application, they will be greeted with a login page p
 ### Warehouse Users
 If `Warehouse` is selected, the Warehouse User page will be displayed
 
-![Warehouse User](/assets/images/WarehousePage.png)
+![Warehouse User](/chill/assets/images/WarehousePage.png)
+
+Docking bays have 3 states
+* Available (Green border)
+* Awaiting (Yellow border)
+* Occupied (Red border)
+
+#### Available
+If the docking bay is available
 
 ### Haulier Users
 

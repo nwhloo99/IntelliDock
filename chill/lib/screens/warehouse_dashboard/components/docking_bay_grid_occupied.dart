@@ -1,4 +1,6 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
+import 'package:chill/queueManager/user/warehouse_user.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:chill/screens/widgets/navigation_button.dart';
@@ -6,10 +8,12 @@ import 'package:chill/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayGridOccupied extends StatefulWidget {
-  const DockingBayGridOccupied({Key? key, required this.dockingBay})
+  const DockingBayGridOccupied(
+      {Key? key, required this.dockingBay, required this.simulatedModel})
       : super(key: key);
 
   final DockingBay dockingBay;
+  final Model simulatedModel;
 
   @override
   _DockingBayGridOccupiedState createState() => _DockingBayGridOccupiedState();
@@ -68,7 +72,9 @@ class _DockingBayGridOccupiedState extends State<DockingBayGridOccupied> {
                       InfoListOccupied(
                           nextHauler: nextHauler,
                           etaOfNextHauler: etaOfNextHauler,
-                          timeLeft: timeLeft)
+                          timeLeft: timeLeft,
+                          dockingBay: this.widget.dockingBay,
+                          simulatedModel: this.widget.simulatedModel)
                     ]))));
   }
 }
@@ -78,12 +84,16 @@ class InfoListOccupied extends StatelessWidget {
       {Key? key,
       required this.nextHauler,
       required this.etaOfNextHauler,
-      required this.timeLeft})
+      required this.timeLeft,
+      required this.dockingBay,
+      required this.simulatedModel})
       : super(key: key);
 
   final String nextHauler;
   final String etaOfNextHauler;
   final String timeLeft;
+  final DockingBay dockingBay;
+  final Model simulatedModel;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +105,14 @@ class InfoListOccupied extends StatelessWidget {
           EntryText(data: "Next Hauler: " + nextHauler),
           EntryText(data: "ETA: " + etaOfNextHauler + " min"),
           EntryText(data: "Time till ready: " + timeLeft + " min"),
-          NavigationButton(label: "Request", onPressed: () {})
+          NavigationButton(
+              label: "Request",
+              onPressed: () {
+                simulatedModel.warehouse_loading_out(
+                    dockingBay.currentHauler.haulerNum,
+                    dockingBay.parentWarehouse,
+                    dockingBay.bayNum);
+              })
         ]));
   }
 }

@@ -1,13 +1,16 @@
+import 'package:chill/model/model.dart';
 import 'package:chill/model/warehouse/docking_bay.dart';
 import 'package:chill/screens/widgets/entry_text.dart';
 import 'package:chill/screens/widgets/list_header.dart';
 import 'package:flutter/material.dart';
 
 class DockingBayGridAwaiting extends StatefulWidget {
-  const DockingBayGridAwaiting({Key? key, required this.dockingBay})
+  const DockingBayGridAwaiting(
+      {Key? key, required this.dockingBay, required this.simulatedModel})
       : super(key: key);
 
   final DockingBay dockingBay;
+  final Model simulatedModel;
 
   @override
   _DockingBayGridAwaitingState createState() => _DockingBayGridAwaitingState();
