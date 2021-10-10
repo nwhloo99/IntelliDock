@@ -22,7 +22,7 @@ class _DockingBayGridOccupiedState extends State<DockingBayGridOccupied> {
     String etaOfNextHauler = '';
     if (this.widget.dockingBay.incomingHauler.isEmpty) {
       nextHauler = 'NIL';
-      etaOfNextHauler = 'NIL';
+      etaOfNextHauler = '-';
     } else {
       nextHauler =
           this.widget.dockingBay.incomingHauler.first.haulerNum.toString();
@@ -40,7 +40,7 @@ class _DockingBayGridOccupiedState extends State<DockingBayGridOccupied> {
     if (this.widget.dockingBay.state == BayState.Occupied) {
       timeLeft = this.widget.dockingBay.estimatedDuration.inMinutes.toString();
     } else {
-      timeLeft = 'NIL';
+      timeLeft = '-';
     }
 
     return Container(
@@ -52,7 +52,9 @@ class _DockingBayGridOccupiedState extends State<DockingBayGridOccupied> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              ListHeader(header: this.widget.dockingBay.bayNum.toString()),
+              ListHeader(
+                  header: "Docking Bay: " +
+                      this.widget.dockingBay.bayNum.toString()),
               InfoListOccupied(
                   nextHauler: nextHauler,
                   etaOfNextHauler: etaOfNextHauler,
@@ -81,8 +83,8 @@ class InfoListOccupied extends StatelessWidget {
             children: <Widget>[
           EntryText(data: "Status: Occupied"),
           EntryText(data: "Next Hauler: " + nextHauler),
-          EntryText(data: "ETA of next hauler: " + etaOfNextHauler + " min"),
-          EntryText(data: "Time till bay available: " + timeLeft + " min"),
+          EntryText(data: "ETA: " + etaOfNextHauler + " min"),
+          EntryText(data: "Time till ready: " + timeLeft + " min"),
           NavigationButton(label: "Request", onPressed: () {})
         ]));
   }

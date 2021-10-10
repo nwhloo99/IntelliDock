@@ -28,11 +28,11 @@ void main() {
 class MyApp extends StatelessWidget {
   // Example HaulerUser object
   HaulerUser haulerUser = new HaulerUser(new Hauler(42069));
-  WarehouseUser bayUser = new WarehouseUser(generateModelA()
+  WarehouseUser bayUser = new WarehouseUser(generateModeB()
       .map
       .warehouses
       .firstWhere((element) => element.warehouseName == ('A')));
-  Model simulatedModel = generateModelA();
+  Model simulatedModel = generateModeB();
 
   // This widget is the root of your application.
   @override
