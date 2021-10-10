@@ -35,11 +35,11 @@ class _HaulerDashboardScreenState extends State<HaulerDashboardScreen> {
                       this.widget.haulerUser, this.widget.simulatedModel),
                   Expanded(
                       child: Row(children: [
-                    DockingBayList(
-                        this.widget.haulerUser, this.widget.simulatedModel,
+                    DockingBayList(this.widget.haulerUser,
+                        this.widget.simulatedModel, JobType.Loading,
                         header: "Loading bay"),
-                    DockingBayList(
-                        this.widget.haulerUser, this.widget.simulatedModel,
+                    DockingBayList(this.widget.haulerUser,
+                        this.widget.simulatedModel, JobType.Unloading,
                         header: "Unloading bay")
                   ]))
                 ]))));

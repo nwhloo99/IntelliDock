@@ -10,8 +10,9 @@ class DockingBayList extends StatefulWidget {
   String header;
   HaulerUser haulerUser;
   Model simulatedModel;
+  JobType jobType;
 
-  DockingBayList(this.haulerUser, this.simulatedModel,
+  DockingBayList(this.haulerUser, this.simulatedModel, this.jobType,
       {Key? key, required this.header})
       : super(key: key);
 
@@ -20,18 +21,27 @@ class DockingBayList extends StatefulWidget {
 }
 
 class _DockingBayListState extends State<DockingBayList> {
-  // Future<DockingBay> getData() async {
-
-  //
-
   @override
   Widget build(BuildContext context) {
     List<DockingBayCard> cardList = [];
-    this.widget.simulatedModel.loadingQueue.requestList.forEach((bayRequest) {
-      DockingBayCard card = new DockingBayCard(
-          bayRequest, this.widget.haulerUser, this.widget.simulatedModel);
-      cardList.add(card);
-    });
+    if (this.widget.jobType == JobType.Loading) {
+      this.widget.simulatedModel.loadingQueue.requestList.forEach((bayRequest) {
+        DockingBayCard card = new DockingBayCard(
+            bayRequest, this.widget.haulerUser, this.widget.simulatedModel);
+        cardList.add(card);
+      });
+    } else {
+      this
+          .widget
+          .simulatedModel
+          .unloadingQueue
+          .requestList
+          .forEach((bayRequest) {
+        DockingBayCard card = new DockingBayCard(
+            bayRequest, this.widget.haulerUser, this.widget.simulatedModel);
+        cardList.add(card);
+      });
+    }
 
     return Container(
         child: Expanded(
